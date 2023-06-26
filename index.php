@@ -1,57 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <?php
+<?php
     require __DIR__ . "/phpQuery-onefile.php";
 
+    function dd($value)
+    {
+        echo '<pre>';
+        print_r($value);
+        echo '</pre>';
+        die();
+    }
+    set_time_limit(500);
 
-
-    // Создаем массив для хранения уникальных тегов
-    // $uniqueTags = array();
-    
-    // Находим все теги на странице и добавляем их в массив
-    // $tags = $pq->find('*');
-    // foreach ($tags as $tag) {
-    //     $tagName = $tag->tagName;
-    
-    //     // Проверяем, содержится ли тег уже в массиве
-    //     if (!in_array($tagName, $uniqueTags)) {
-    //         $uniqueTags[] = $tagName;
-    //     }
-    // }
-    
-    // // Выводим уникальные теги
-    // foreach ($uniqueTags as $tag) {
-    //     $array = $pq->find($tag);
-    //     foreach ($array as $el) {
-    //         $ent = pq($el);
-    //         if ($ent->text() != '') {
-    //             $data[$tag][] = $ent->text();
-    //         }
-    //     }
-    // }
-    // $titles_h2 = $pq->find('h2');
-    // foreach ($titles_h2 as $title_h2) {
-    //     $ent = pq($title_h2);
-    //     if ($ent->text() != '') {
-    //         $data['title_h2'][] = $ent->text();
-    //     }
-    // }
-    
-    // $titles_h4 = $pq->find('h4');
-    // foreach ($titles_h4 as $title_h4) {
-    //     $ent = pq($title_h4);
-    //     if ($ent->text() != '') {
-    //         $data['titles_h4'][] = $ent->text();
-    //     }
-    // }
     $categories = [
         'poliuretanovye-shtampy',
         'formy-dlya-3d-panelej',
@@ -64,7 +22,7 @@
     $products = [];
     $i = 0;
     foreach ($categories as $category) {
-        $paginate = file_get_contents('https://formdekor.com/'.$category.'/');
+        $paginate = file_get_contents('https://formdekor.com/' . $category . '/');
         $paginate = phpQuery::newDocument($paginate);
         $paginate = $paginate->find('.pagination')->text();
         $paginate = str_split($paginate);
@@ -75,7 +33,7 @@
             }
         }
         foreach ($pages as $page) {
-            $file = file_get_contents('https://formdekor.com/'.$category.'/?page='.$page);
+            $file = file_get_contents('https://formdekor.com/' . $category . '/?page=' . $page);
             $pq = phpQuery::newDocument($file);
             $data = [];
             $productsList = $pq->find('.products-category .products-list');
@@ -85,32 +43,103 @@
                 $pqProduct = pq($product);
                 $products[$i]['url'] = $pqProduct->find('a')->attr('href');
                 $products[$i]['price'] = trim($pqProduct->find('.price-new')->text());
-                $products[$i]['name'] = trim($pqProduct->find('a')->text());
-                $images = array();
-                $pqProduct->find('.product-card__gallery .item-img')->each(function ($item) use (&$images) {
-                    $images[] = pq($item)->attr('data-src');
-                });
-                
-                $products[$i]['images'] = $images;
+
+                $nameDiv = $pqProduct->find('h4 a');
+                $products[$i]['name'] = trim($nameDiv->contents()->not($nameDiv->children())->text());
+
                 $products[$i]['category'] = $category;
+
+                $productPage = file_get_contents($products[$i]['url']);
+                $pqProductPage = phpQuery::newDocument($productPage);
+
+                $products[$i]['brand'] = trim($pqProductPage->find('.brand a span')->text());
+
+                $modelDiv = $pqProductPage->find('.model');
+                $products[$i]['model'] = trim($modelDiv->contents()->not($modelDiv->children())->text());
+
+                $products[$i]['material'] = trim($pqProductPage->find('.propery-title')->text());
+                $products[$i]['description'] = htmlspecialchars(trim($pqProductPage->find('#collapse-description')->html()));
+
+                $keyWords = [];
+                $pqProductPage->find('#tab-tags a')->each(function ($item) use (&$keyWords) {
+                    $keyWords[] = pq($item)->text();
+                });
+
+                $images = [];
+                $pqProductPage->find('.image-additional a')->each(function ($item) use (&$images) {
+                    $images[] = pq($item)->attr('data-image');
+                });
+
+                $products[$i]['images'] = $images;
+
+                $products[$i]['key_words'] = $keyWords;
+                $products[$i]['address'] = trim($pqProductPage->find('.adres')->text());
                 $i++;
             }
         }
-        break;
+    };
+    $output = '
+    <?xml version="1.0" encoding="UTF-8"?>
+        <yml_catalog date="2023-06-25 11:18">
+            <shop>
+                <name>ПУ формы и штампы</name>
+                <company>ФОРМДЕКОР-UA</company>
+                <url>https://formdekor.com/</url>
+                <platform>Opencart</platform>
+                <version>3.0.3.8/1.2.1</version>
+                <currencies>
+                    <currency id="USD" rate="1"/>
+                    </currencies>
+                <categories>
+                    <category id="59"> Поліуретанові штампи</category>
+                    <category id="60"> Форми для 3d панелей</category>
+                </categories>
+                <offers>';
+    foreach ($products as $product) {
+        $output .= '<offer available="true">
+        <url>'.$product['url'].'</url>
+        <price>'.$product['price'].'</price>
+        <currencyId>USD</currencyId>
+        <name>'.$product['name'].'</name>
+        <vendor>'.$product['brand'].'</vendor>
+        <vendorCode>'.$product['model'].'</vendorCode>
+        <description><![CDATA['.
+        $product['description']
+        .']]></description>
+        <keywords>';
+        foreach($product['key_words'] as $key =>$word){
+            if ($word != end($product['key_words'])) {
+                $output .= $word .', &lt;/br&gt;';
+            } else{
+                $output .= $word;
+            }
+        }
+        $output .='</keywords>
+        <country>Украина</country>
+        <param name="Матеріал">'.$product['material'].'</param>
+        <param name="Бренд">'.$product['brand'].'</param>
+        ';
+        foreach($product['images'] as $image){
+            $output .= '<picture>'.$image.'</picture>';
+        }
+        $output .=  '</offer>';
     }
-
-
-    echo '<pre>';
-    print_r($products);
-    echo '</pre>';
-
-    function dd($value){
-        echo '<pre>';
-        print_r($value);
-        echo '</pre>';
-        die();
-    }
+    $output .= '
+                </offers>
+            </shop>
+        </yml_catalog>';
+        $filename = uniqid() . '.xml';
+        file_put_contents($filename, $output);
+        header('Content-Type: application/xml');
+        header('Content-Disposition: attachment; filename=' . $filename);
+        header('Content-Length: ' . filesize($filename));
+        header('Pragma: no-cache');
+        header('Expires: 0');
+        
+        // Отправка содержимого файла на скачивание
+        readfile($filename);
+        
+        // Удаление временного файла
+        unlink($filename);
+        exit();
     ?>
-</body>
-
-</html>
