@@ -1,6 +1,5 @@
 <?php
-    set_time_limit(500);
-
+ function getFormdekorData(){
     $categories = [
         'poliuretanovye-shtampy',
         'formy-dlya-3d-panelej',
@@ -36,7 +35,7 @@
                 $products[$i]['price'] = trim($pqProduct->find('.price-new')->text());
 
                 $nameDiv = $pqProduct->find('h4 a');
-                $products[$i]['name'] = trim($nameDiv->contents()->not($nameDiv->children())->text());
+                $products[$i]['name'] = str_replace('&', '&quot;', trim($nameDiv->contents()->not($nameDiv->children())->text()));
 
                 $products[$i]['category'] = $category;
 
@@ -69,9 +68,8 @@
             }
         }
     };
-    $output = '
-    <?xml version="1.0" encoding="UTF-8"?>
-        <yml_catalog date="2023-06-25 11:18">
+    $output = '<?xml version="1.0" encoding="UTF-8"?>
+        <yml_catalog date="'.date('Y-m-d').' '.date('H:i').'">
             <shop>
                 <name>ПУ формы и штампы</name>
                 <company>ФОРМДЕКОР-UA</company>
@@ -119,18 +117,5 @@
                 </offers>
             </shop>
         </yml_catalog>';
-        $filename = uniqid() . '.xml';
-        file_put_contents($filename, $output);
-        header('Content-Type: application/xml');
-        header('Content-Disposition: attachment; filename=' . $filename);
-        header('Content-Length: ' . filesize($filename));
-        header('Pragma: no-cache');
-        header('Expires: 0');
-        
-        // Отправка содержимого файла на скачивание
-        readfile($filename);
-        
-        // Удаление временного файла
-        unlink($filename);
-        exit();
-    ?>
+     return $output;
+ }
