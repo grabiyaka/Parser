@@ -32,8 +32,8 @@
             foreach ($pqProducts as $key => $product) {
                 $pqProduct = pq($product);
                 $products[$i]['url'] = $pqProduct->find('a')->attr('href');
-                $products[$i]['price'] = trim($pqProduct->find('.price-new')->text());
-
+                $products[$i]['price'] = str_replace(['$', ' '], '', trim($pqProduct->find('.price-new')->text()));
+                
                 $nameDiv = $pqProduct->find('h4 a');
                 $products[$i]['name'] = str_replace('&', '&quot;', trim($nameDiv->contents()->not($nameDiv->children())->text()));
 
@@ -84,11 +84,13 @@
                     <category id="60"> Форми для 3d панелей</category>
                 </categories>
                 <offers>';
-    foreach ($products as $product) {
-        $output .= '<offer available="true">
+    foreach ($products as $index => $product) {
+        $output .= '<offer id="' . $index + 1 . '" available="true">
         <url>'.$product['url'].'</url>
         <price>'.$product['price'].'</price>
         <currencyId>USD</currencyId>
+        <categoryId></categoryId>
+        <quantity_in_stock></quantity_in_stock>
         <name>'.$product['name'].'</name>
         <vendor>'.$product['brand'].'</vendor>
         <vendorCode>'.$product['model'].'</vendorCode>

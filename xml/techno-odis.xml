@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-            <yml_catalog date="2024-07-07 12:15">
+            <yml_catalog date="2023-07-25 18:42">
                     <shop>
                         <name>ПУ формы и штампы</name>
                         <company>ФОРМДЕКОР-UA</company>
@@ -31,60 +31,23 @@
                 <param name="Матеріал"></param>
                 <param name="Бренд">techno-odis</param>
                 <picture>https://techno-odis.com//uploads/catalogue/products/thumb/50.JPG</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/50_2_thumb.JPG</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/50_1_thumb.jpg</picture></offer><offer id="2" available="true">
-                <url>https://techno-odis.com/catalogue/product/oblitsovka-dekor-fd-008</url>
-                <price>30</price>
+                <url>https://techno-odis.com/catalogue/product/oblitsovka-dekor-fd-006</url>
+                <price>10,42</price>
                 <currencyId>USD</currencyId>
                 <categoryId></categoryId>
                 <quantity_in_stock></quantity_in_stock>
-                <name>Облицовка Декор фд-008</name>
+                <name>Облицовка Декор фд-006</name>
                 <vendor>techno-odis</vendor>
-                <vendorCode>Фд - 008</vendorCode>
-                <description><![CDATA[&lt;p&gt;Размеры &lt;/p&gt;
-&lt;p&gt;Размер: 180х110х20;&lt;/p&gt;
-&lt;p&gt;Количество: 5 на кв.метр.&lt;/p&gt;]]></description>
+                <vendorCode>фд-006</vendorCode>
+                <description><![CDATA[&lt;p&gt;Размер: 375x185x19;&lt;/p&gt;
+&lt;p&gt;Количество: 14.4 на кв.метр.&lt;/p&gt;]]></description>
                 <minimum_order_quantity>1</minimum_order_quantity>
                 <keywords></keywords>
                 <manufacturer_warranty>1</manufacturer_warranty>
                 <country>Украина</country>
                 <param name="Матеріал"></param>
                 <param name="Бренд">techno-odis</param>
-                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/52.JPG</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/51_1_thumb.JPG</picture></offer><offer id="3" available="true">
-                <url>https://techno-odis.com/catalogue/product/antichnyi-kamen-ft-06045</url>
-                <price>8</price>
-                <currencyId>USD</currencyId>
-                <categoryId></categoryId>
-                <quantity_in_stock></quantity_in_stock>
-                <name>Античный камень ФТ-06045</name>
-                <vendor>techno-odis</vendor>
-                <vendorCode>ФТ-06045</vendorCode>
-                <description><![CDATA[&lt;p&gt;Размер: 280х280х95х45;&lt;/p&gt;
-&lt;p&gt;Количество: 15 шт на кв.метр.&lt;/p&gt;
-&lt;p&gt; &lt;/p&gt;]]></description>
-                <minimum_order_quantity>1</minimum_order_quantity>
-                <keywords></keywords>
-                <manufacturer_warranty>1</manufacturer_warranty>
-                <country>Украина</country>
-                <param name="Матеріал"></param>
-                <param name="Бренд">techno-odis</param>
-                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/69.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/67_1_thumb.jpg</picture></offer><offer id="4" available="true">
-                <url>https://techno-odis.com/catalogue/product/oblitsovka-dekor-fd-009</url>
-                <price>12,2</price>
-                <currencyId>USD</currencyId>
-                <categoryId></categoryId>
-                <quantity_in_stock></quantity_in_stock>
-                <name>Облицовка Декор фд-009</name>
-                <vendor>techno-odis</vendor>
-                <vendorCode>Фд-009</vendorCode>
-                <description><![CDATA[&lt;p&gt;Размер: 234х117х1;&lt;/p&gt;
-&lt;p&gt;Количество: 12.3 на кв.метр&lt;/p&gt;
-&lt;p&gt; &lt;/p&gt;]]></description>
-                <minimum_order_quantity>1</minimum_order_quantity>
-                <keywords></keywords>
-                <manufacturer_warranty>1</manufacturer_warranty>
-                <country>Украина</country>
-                <param name="Матеріал"></param>
-                <param name="Бренд">techno-odis</param>
-                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/55.png</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/53_1_thumb.png</picture></offer><offer id="5" available="true">
+                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/41.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/41_1_thumb.jpg</picture></offer><offer id="3" available="true">
                 <url>https://techno-odis.com/catalogue/product/bordiur-fb-001</url>
                 <price>15</price>
                 <currencyId>USD</currencyId>
@@ -101,7 +64,25 @@
                 <country>Украина</country>
                 <param name="Матеріал"></param>
                 <param name="Бренд">techno-odis</param>
-                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/49.JPG</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/49_1_thumb.JPG</picture></offer><offer id="6" available="true">
+                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/49.JPG</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/49_1_thumb.JPG</picture></offer><offer id="4" available="true">
+                <url>https://techno-odis.com/catalogue/product/ft-022d</url>
+                <price>12,5</price>
+                <currencyId>USD</currencyId>
+                <categoryId></categoryId>
+                <quantity_in_stock></quantity_in_stock>
+                <name>ФТ-022д</name>
+                <vendor>techno-odis</vendor>
+                <vendorCode>ФТ-022д</vendorCode>
+                <description><![CDATA[&lt;p&gt;Размер: 480х170х45;&lt;/p&gt;
+&lt;p&gt;Количество: 12,25 шт на кв.метр.&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;]]></description>
+                <minimum_order_quantity>1</minimum_order_quantity>
+                <keywords></keywords>
+                <manufacturer_warranty>1</manufacturer_warranty>
+                <country>Украина</country>
+                <param name="Матеріал"></param>
+                <param name="Бренд">techno-odis</param>
+                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/65.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/63_1_thumb.jpg</picture></offer><offer id="5" available="true">
                 <url>https://techno-odis.com/catalogue/product/antichnyi-kamen-ft-04045</url>
                 <price>5</price>
                 <currencyId>USD</currencyId>
@@ -118,7 +99,7 @@
                 <country>Украина</country>
                 <param name="Матеріал"></param>
                 <param name="Бренд">techno-odis</param>
-                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/68.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/66_1_thumb.jpg</picture></offer><offer id="7" available="true">
+                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/68.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/66_1_thumb.jpg</picture></offer><offer id="6" available="true">
                 <url>https://techno-odis.com/catalogue/product/antichnyi-kamen-ft-7045</url>
                 <price>17,44</price>
                 <currencyId>USD</currencyId>
@@ -135,7 +116,7 @@
                 <country>Украина</country>
                 <param name="Матеріал"></param>
                 <param name="Бренд">techno-odis</param>
-                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/64.png</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/62_1_thumb.png</picture></offer><offer id="8" available="true">
+                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/64.png</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/62_1_thumb.png</picture></offer><offer id="7" available="true">
                 <url>https://techno-odis.com/catalogue/product/antichnyi-kamen-ft-4045</url>
                 <price>8,11</price>
                 <currencyId>USD</currencyId>
@@ -152,7 +133,7 @@
                 <country>Украина</country>
                 <param name="Матеріал"></param>
                 <param name="Бренд">techno-odis</param>
-                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/58.png</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/56_1_thumb.png</picture></offer><offer id="9" available="true">
+                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/58.png</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/56_1_thumb.png</picture></offer><offer id="8" available="true">
                 <url>https://techno-odis.com/catalogue/product/antichnyi-kamen-ft-02045</url>
                 <price>8,57</price>
                 <currencyId>USD</currencyId>
@@ -170,7 +151,25 @@
                 <country>Украина</country>
                 <param name="Матеріал"></param>
                 <param name="Бренд">techno-odis</param>
-                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/67.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/65_1_thumb.jpg</picture></offer><offer id="10" available="true">
+                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/67.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/65_1_thumb.jpg</picture></offer><offer id="9" available="true">
+                <url>https://techno-odis.com/catalogue/product/antichnyi-kamen-ft-06045</url>
+                <price>8</price>
+                <currencyId>USD</currencyId>
+                <categoryId></categoryId>
+                <quantity_in_stock></quantity_in_stock>
+                <name>Античный камень ФТ-06045</name>
+                <vendor>techno-odis</vendor>
+                <vendorCode>ФТ-06045</vendorCode>
+                <description><![CDATA[&lt;p&gt;Размер: 280х280х95х45;&lt;/p&gt;
+&lt;p&gt;Количество: 15 шт на кв.метр.&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;]]></description>
+                <minimum_order_quantity>1</minimum_order_quantity>
+                <keywords></keywords>
+                <manufacturer_warranty>1</manufacturer_warranty>
+                <country>Украина</country>
+                <param name="Матеріал"></param>
+                <param name="Бренд">techno-odis</param>
+                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/69.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/67_1_thumb.jpg</picture></offer><offer id="10" available="true">
                 <url>https://techno-odis.com/catalogue/product/antichnyi-kamen-ft-5045</url>
                 <price>8,57</price>
                 <currencyId>USD</currencyId>
@@ -222,23 +221,6 @@
                 <param name="Матеріал"></param>
                 <param name="Бренд">techno-odis</param>
                 <picture>https://techno-odis.com//uploads/catalogue/products/thumb/70.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/68_1_thumb.jpg</picture></offer><offer id="13" available="true">
-                <url>https://techno-odis.com/catalogue/product/oblitsovka-dekor-fd-006</url>
-                <price>10,42</price>
-                <currencyId>USD</currencyId>
-                <categoryId></categoryId>
-                <quantity_in_stock></quantity_in_stock>
-                <name>Облицовка Декор фд-006</name>
-                <vendor>techno-odis</vendor>
-                <vendorCode>фд-006</vendorCode>
-                <description><![CDATA[&lt;p&gt;Размер: 375x185x19;&lt;/p&gt;
-&lt;p&gt;Количество: 14.4 на кв.метр.&lt;/p&gt;]]></description>
-                <minimum_order_quantity>1</minimum_order_quantity>
-                <keywords></keywords>
-                <manufacturer_warranty>1</manufacturer_warranty>
-                <country>Украина</country>
-                <param name="Матеріал"></param>
-                <param name="Бренд">techno-odis</param>
-                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/41.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/41_1_thumb.jpg</picture></offer><offer id="14" available="true">
                 <url>https://techno-odis.com/catalogue/product/oblitsovka-dekor-fd-007</url>
                 <price>12,4</price>
                 <currencyId>USD</currencyId>
@@ -255,7 +237,299 @@
                 <country>Украина</country>
                 <param name="Матеріал"></param>
                 <param name="Бренд">techno-odis</param>
-                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/42.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/42_1_thumb.jpg</picture></offer><offer id="15" available="true">
+                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/42.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/42_1_thumb.jpg</picture></offer><offer id="14" available="true">
+                <url>https://techno-odis.com/catalogue/product/staryi-gorod-ft-011</url>
+                <price>6,49</price>
+                <currencyId>USD</currencyId>
+                <categoryId></categoryId>
+                <quantity_in_stock></quantity_in_stock>
+                <name> Старый город фт-011</name>
+                <vendor>techno-odis</vendor>
+                <vendorCode>фт-011</vendorCode>
+                <description><![CDATA[&lt;p&gt;Размер:110х50Х40,110х80Х40,110х110Х40;  Количество: 18.5 на кв.метр.&lt;/p&gt;]]></description>
+                <minimum_order_quantity>1</minimum_order_quantity>
+                <keywords></keywords>
+                <manufacturer_warranty>1</manufacturer_warranty>
+                <country>Украина</country>
+                <param name="Матеріал"></param>
+                <param name="Бренд">techno-odis</param>
+                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/1.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/1_1_thumb.jpg</picture></offer><offer id="15" available="true">
+                <url>https://techno-odis.com/catalogue/product/staryi-gorod-ft-003</url>
+                <price>5,83</price>
+                <currencyId>USD</currencyId>
+                <categoryId></categoryId>
+                <quantity_in_stock></quantity_in_stock>
+                <name> Старый город фт-003</name>
+                <vendor>techno-odis</vendor>
+                <vendorCode>фт-003</vendorCode>
+                <description><![CDATA[&lt;p&gt;Размер: 110х110x40;  Количество: 20.6 на кв.метр.&lt;/p&gt;]]></description>
+                <minimum_order_quantity>1</minimum_order_quantity>
+                <keywords></keywords>
+                <manufacturer_warranty>1</manufacturer_warranty>
+                <country>Украина</country>
+                <param name="Матеріал"></param>
+                <param name="Бренд">techno-odis</param>
+                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/2.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/2_1_thumb.jpg</picture></offer><offer id="16" available="true">
+                <url>https://techno-odis.com/catalogue/product/staryi-gorod-ft-009</url>
+                <price>5,83</price>
+                <currencyId>USD</currencyId>
+                <categoryId></categoryId>
+                <quantity_in_stock></quantity_in_stock>
+                <name> Старый город фт-009</name>
+                <vendor>techno-odis</vendor>
+                <vendorCode>фт-009</vendorCode>
+                <description><![CDATA[&lt;p&gt;Размер:220х110х40;  Количество: 20.6 на кв.метр.&lt;/p&gt;]]></description>
+                <minimum_order_quantity>1</minimum_order_quantity>
+                <keywords></keywords>
+                <manufacturer_warranty>1</manufacturer_warranty>
+                <country>Украина</country>
+                <param name="Матеріал"></param>
+                <param name="Бренд">techno-odis</param>
+                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/3.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/3_1_thumb.jpg</picture></offer><offer id="17" available="true">
+                <url>https://techno-odis.com/catalogue/product/staryi-gorod-ft-013</url>
+                <price>5,83</price>
+                <currencyId>USD</currencyId>
+                <categoryId></categoryId>
+                <quantity_in_stock></quantity_in_stock>
+                <name>Старый город фт-013</name>
+                <vendor>techno-odis</vendor>
+                <vendorCode>фт-013</vendorCode>
+                <description><![CDATA[&lt;p&gt;Размер: 220х220x40; Количество: 20.6 на кв.метр.&lt;/p&gt;]]></description>
+                <minimum_order_quantity>1</minimum_order_quantity>
+                <keywords></keywords>
+                <manufacturer_warranty>1</manufacturer_warranty>
+                <country>Украина</country>
+                <param name="Матеріал"></param>
+                <param name="Бренд">techno-odis</param>
+                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/4.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/4_1_thumb.jpg</picture></offer><offer id="18" available="true">
+                <url>https://techno-odis.com/catalogue/product/staryi-gorod-ft-018</url>
+                <price>5</price>
+                <currencyId>USD</currencyId>
+                <categoryId></categoryId>
+                <quantity_in_stock></quantity_in_stock>
+                <name>Старый город фт-018</name>
+                <vendor>techno-odis</vendor>
+                <vendorCode>фт-018</vendorCode>
+                <description><![CDATA[&lt;p&gt;Размер: - ;  Количество: 24.0 на кв.метр.&lt;/p&gt;]]></description>
+                <minimum_order_quantity>1</minimum_order_quantity>
+                <keywords></keywords>
+                <manufacturer_warranty>1</manufacturer_warranty>
+                <country>Украина</country>
+                <param name="Матеріал"></param>
+                <param name="Бренд">techno-odis</param>
+                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/5.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/5_1_thumb.jpg</picture></offer><offer id="19" available="true">
+                <url>https://techno-odis.com/catalogue/product/staryi-gorod-ft-005</url>
+                <price>3,17</price>
+                <currencyId>USD</currencyId>
+                <categoryId></categoryId>
+                <quantity_in_stock></quantity_in_stock>
+                <name>Старый город фт-005</name>
+                <vendor>techno-odis</vendor>
+                <vendorCode>фт-005</vendorCode>
+                <description><![CDATA[&lt;p&gt;Размер: 110х50Х40,110х80Х40,110х110Х40; Количество: 37.8 на кв.метр.&lt;/p&gt;]]></description>
+                <minimum_order_quantity>1</minimum_order_quantity>
+                <keywords></keywords>
+                <manufacturer_warranty>1</manufacturer_warranty>
+                <country>Украина</country>
+                <param name="Матеріал"></param>
+                <param name="Бренд">techno-odis</param>
+                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/6.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/6_1_thumb.jpg</picture></offer><offer id="20" available="true">
+                <url>https://techno-odis.com/catalogue/product/bazalt-ft-001</url>
+                <price>6,94</price>
+                <currencyId>USD</currencyId>
+                <categoryId></categoryId>
+                <quantity_in_stock></quantity_in_stock>
+                <name>Базальт фт-001</name>
+                <vendor>techno-odis</vendor>
+                <vendorCode>фт-001</vendorCode>
+                <description><![CDATA[&lt;p&gt;Размер: 120х120x40;  Количество: 17.3 на кв.метр.&lt;/p&gt;]]></description>
+                <minimum_order_quantity>1</minimum_order_quantity>
+                <keywords></keywords>
+                <manufacturer_warranty>1</manufacturer_warranty>
+                <country>Украина</country>
+                <param name="Матеріал"></param>
+                <param name="Бренд">techno-odis</param>
+                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/7.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/7_1_thumb.jpg</picture></offer><offer id="21" available="true">
+                <url>https://techno-odis.com/catalogue/product/bazalt-ft-0181</url>
+                <price>6,94</price>
+                <currencyId>USD</currencyId>
+                <categoryId></categoryId>
+                <quantity_in_stock></quantity_in_stock>
+                <name>Базальт фт-0181</name>
+                <vendor>techno-odis</vendor>
+                <vendorCode>фт-0181</vendorCode>
+                <description><![CDATA[&lt;p&gt;Размер: 240х120x40; Количество: 17.3 на кв.метр.&lt;/p&gt;]]></description>
+                <minimum_order_quantity>1</minimum_order_quantity>
+                <keywords></keywords>
+                <manufacturer_warranty>1</manufacturer_warranty>
+                <country>Украина</country>
+                <param name="Матеріал"></param>
+                <param name="Бренд">techno-odis</param>
+                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/8.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/8_1_thumb.jpg</picture></offer><offer id="22" available="true">
+                <url>https://techno-odis.com/catalogue/product/bazalt-ft-008</url>
+                <price>6,94</price>
+                <currencyId>USD</currencyId>
+                <categoryId></categoryId>
+                <quantity_in_stock></quantity_in_stock>
+                <name>Базальт фт-008</name>
+                <vendor>techno-odis</vendor>
+                <vendorCode>фт-008</vendorCode>
+                <description><![CDATA[&lt;p&gt;Размер: 240х240x40; Количество: 17.3 на кв.метр.&lt;/p&gt;]]></description>
+                <minimum_order_quantity>1</minimum_order_quantity>
+                <keywords></keywords>
+                <manufacturer_warranty>1</manufacturer_warranty>
+                <country>Украина</country>
+                <param name="Матеріал"></param>
+                <param name="Бренд">techno-odis</param>
+                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/9.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/9_1_thumb.jpg</picture></offer><offer id="23" available="true">
+                <url>https://techno-odis.com/catalogue/product/bazalt-ft-004</url>
+                <price>5</price>
+                <currencyId>USD</currencyId>
+                <categoryId></categoryId>
+                <quantity_in_stock></quantity_in_stock>
+                <name>Базальт фт-004</name>
+                <vendor>techno-odis</vendor>
+                <vendorCode>фт-004</vendorCode>
+                <description><![CDATA[&lt;p&gt;Размер: - ;  Количество: 24.0 на кв.метр.&lt;/p&gt;]]></description>
+                <minimum_order_quantity>1</minimum_order_quantity>
+                <keywords></keywords>
+                <manufacturer_warranty>1</manufacturer_warranty>
+                <country>Украина</country>
+                <param name="Матеріал"></param>
+                <param name="Бренд">techno-odis</param>
+                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/10.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/10_1_thumb.jpg</picture></offer><offer id="24" available="true">
+                <url>https://techno-odis.com/catalogue/product/bazalt-ft-019</url>
+                <price>5,22</price>
+                <currencyId>USD</currencyId>
+                <categoryId></categoryId>
+                <quantity_in_stock></quantity_in_stock>
+                <name>Базальт фт-019</name>
+                <vendor>techno-odis</vendor>
+                <vendorCode>фт-019</vendorCode>
+                <description><![CDATA[&lt;p&gt;Размер: 120х60x40; Количество: 23.0 на кв.метр.&lt;/p&gt;]]></description>
+                <minimum_order_quantity>1</minimum_order_quantity>
+                <keywords></keywords>
+                <manufacturer_warranty>1</manufacturer_warranty>
+                <country>Украина</country>
+                <param name="Матеріал"></param>
+                <param name="Бренд">techno-odis</param>
+                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/11.JPG</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/11_1_thumb.jpg</picture></offer><offer id="25" available="true">
+                <url>https://techno-odis.com/catalogue/product/bazalt-ft-012</url>
+                <price>5,22</price>
+                <currencyId>USD</currencyId>
+                <categoryId></categoryId>
+                <quantity_in_stock></quantity_in_stock>
+                <name>Базальт фт-012</name>
+                <vendor>techno-odis</vendor>
+                <vendorCode>фт-012</vendorCode>
+                <description><![CDATA[&lt;p&gt;Размер: 120х90x40; Количество: 23.0 на кв.метр.&lt;/p&gt;]]></description>
+                <minimum_order_quantity>1</minimum_order_quantity>
+                <keywords></keywords>
+                <manufacturer_warranty>1</manufacturer_warranty>
+                <country>Украина</country>
+                <param name="Матеріал"></param>
+                <param name="Бренд">techno-odis</param>
+                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/12.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/12_1_thumb.jpg</picture></offer><offer id="26" available="true">
+                <url>https://techno-odis.com/catalogue/product/bazalt-ft-088</url>
+                <price>10</price>
+                <currencyId>USD</currencyId>
+                <categoryId></categoryId>
+                <quantity_in_stock></quantity_in_stock>
+                <name>Базальт фт-088</name>
+                <vendor>techno-odis</vendor>
+                <vendorCode>фт-088</vendorCode>
+                <description><![CDATA[&lt;p&gt;Размер:175х120х40; Количество: 12.0 на кв.метр.&lt;/p&gt;]]></description>
+                <minimum_order_quantity>1</minimum_order_quantity>
+                <keywords></keywords>
+                <manufacturer_warranty>1</manufacturer_warranty>
+                <country>Украина</country>
+                <param name="Матеріал"></param>
+                <param name="Бренд">techno-odis</param>
+                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/13.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/13_1_thumb.jpg</picture></offer><offer id="27" available="true">
+                <url>https://techno-odis.com/catalogue/product/oblitsovka-dekor-fd-008</url>
+                <price>30</price>
+                <currencyId>USD</currencyId>
+                <categoryId></categoryId>
+                <quantity_in_stock></quantity_in_stock>
+                <name>Облицовка Декор фд-008</name>
+                <vendor>techno-odis</vendor>
+                <vendorCode>Фд - 008</vendorCode>
+                <description><![CDATA[&lt;p&gt;Размеры &lt;/p&gt;
+&lt;p&gt;Размер: 180х110х20;&lt;/p&gt;
+&lt;p&gt;Количество: 5 на кв.метр.&lt;/p&gt;]]></description>
+                <minimum_order_quantity>1</minimum_order_quantity>
+                <keywords></keywords>
+                <manufacturer_warranty>1</manufacturer_warranty>
+                <country>Украина</country>
+                <param name="Матеріал"></param>
+                <param name="Бренд">techno-odis</param>
+                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/52.JPG</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/51_1_thumb.JPG</picture></offer><offer id="28" available="true">
+                <url>https://techno-odis.com/catalogue/product/oblitsovka-dekor-fd-009</url>
+                <price>12,2</price>
+                <currencyId>USD</currencyId>
+                <categoryId></categoryId>
+                <quantity_in_stock></quantity_in_stock>
+                <name>Облицовка Декор фд-009</name>
+                <vendor>techno-odis</vendor>
+                <vendorCode>Фд-009</vendorCode>
+                <description><![CDATA[&lt;p&gt;Размер: 234х117х1;&lt;/p&gt;
+&lt;p&gt;Количество: 12.3 на кв.метр&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;]]></description>
+                <minimum_order_quantity>1</minimum_order_quantity>
+                <keywords></keywords>
+                <manufacturer_warranty>1</manufacturer_warranty>
+                <country>Украина</country>
+                <param name="Матеріал"></param>
+                <param name="Бренд">techno-odis</param>
+                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/55.png</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/53_1_thumb.png</picture></offer><offer id="29" available="true">
+                <url>https://techno-odis.com/catalogue/product/staryi-arbat-ft-015</url>
+                <price>6,67</price>
+                <currencyId>USD</currencyId>
+                <categoryId></categoryId>
+                <quantity_in_stock></quantity_in_stock>
+                <name> Старый арбат фт-015</name>
+                <vendor>techno-odis</vendor>
+                <vendorCode>фт-015</vendorCode>
+                <description><![CDATA[&lt;p&gt;Размер: 234х234x40;Количество: 18.0 на кв.метр.&lt;/p&gt;]]></description>
+                <minimum_order_quantity>1</minimum_order_quantity>
+                <keywords></keywords>
+                <manufacturer_warranty>1</manufacturer_warranty>
+                <country>Украина</country>
+                <param name="Матеріал"></param>
+                <param name="Бренд">techno-odis</param>
+                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/14.png</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/14_1_thumb.jpg</picture></offer><offer id="30" available="true">
+                <url>https://techno-odis.com/catalogue/product/staryi-arbat-ft-016</url>
+                <price>6,67</price>
+                <currencyId>USD</currencyId>
+                <categoryId></categoryId>
+                <quantity_in_stock></quantity_in_stock>
+                <name>Старый арбат фт-016</name>
+                <vendor>techno-odis</vendor>
+                <vendorCode>фт-016</vendorCode>
+                <description><![CDATA[&lt;p&gt;Размер: &lt;span&gt;234х117х40&lt;/span&gt;; Количество: &lt;span&gt;18.0 &lt;/span&gt;на кв.метр.&lt;/p&gt;]]></description>
+                <minimum_order_quantity>1</minimum_order_quantity>
+                <keywords></keywords>
+                <manufacturer_warranty>1</manufacturer_warranty>
+                <country>Украина</country>
+                <param name="Матеріал"></param>
+                <param name="Бренд">techno-odis</param>
+                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/15.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/15_1_thumb.jpg</picture></offer><offer id="31" available="true">
+                <url>https://techno-odis.com/catalogue/product/staryi-arbat-ft-017</url>
+                <price>6,67</price>
+                <currencyId>USD</currencyId>
+                <categoryId></categoryId>
+                <quantity_in_stock></quantity_in_stock>
+                <name>Старый арбат фт-017</name>
+                <vendor>techno-odis</vendor>
+                <vendorCode>фт-017</vendorCode>
+                <description><![CDATA[&lt;p&gt;Размер: &lt;span&gt;117х117х40&lt;/span&gt;; Количество: &lt;span&gt;18.0&lt;/span&gt; на кв.метр.&lt;/p&gt;]]></description>
+                <minimum_order_quantity>1</minimum_order_quantity>
+                <keywords></keywords>
+                <manufacturer_warranty>1</manufacturer_warranty>
+                <country>Украина</country>
+                <param name="Матеріал"></param>
+                <param name="Бренд">techno-odis</param>
+                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/16.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/16_1_thumb.jpg</picture></offer><offer id="32" available="true">
                 <url>https://techno-odis.com/catalogue/product/ft-023d</url>
                 <price>12,5</price>
                 <currencyId>USD</currencyId>
@@ -273,281 +547,7 @@
                 <country>Украина</country>
                 <param name="Матеріал"></param>
                 <param name="Бренд">techno-odis</param>
-                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/66.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/64_1_thumb.jpg</picture></offer><offer id="16" available="true">
-                <url>https://techno-odis.com/catalogue/product/staryi-gorod-ft-011</url>
-                <price>6,49</price>
-                <currencyId>USD</currencyId>
-                <categoryId></categoryId>
-                <quantity_in_stock></quantity_in_stock>
-                <name> Старый город фт-011</name>
-                <vendor>techno-odis</vendor>
-                <vendorCode>фт-011</vendorCode>
-                <description><![CDATA[&lt;p&gt;Размер:110х50Х40,110х80Х40,110х110Х40;  Количество: 18.5 на кв.метр.&lt;/p&gt;]]></description>
-                <minimum_order_quantity>1</minimum_order_quantity>
-                <keywords></keywords>
-                <manufacturer_warranty>1</manufacturer_warranty>
-                <country>Украина</country>
-                <param name="Матеріал"></param>
-                <param name="Бренд">techno-odis</param>
-                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/1.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/1_1_thumb.jpg</picture></offer><offer id="17" available="true">
-                <url>https://techno-odis.com/catalogue/product/staryi-gorod-ft-003</url>
-                <price>5,83</price>
-                <currencyId>USD</currencyId>
-                <categoryId></categoryId>
-                <quantity_in_stock></quantity_in_stock>
-                <name> Старый город фт-003</name>
-                <vendor>techno-odis</vendor>
-                <vendorCode>фт-003</vendorCode>
-                <description><![CDATA[&lt;p&gt;Размер: 110х110x40;  Количество: 20.6 на кв.метр.&lt;/p&gt;]]></description>
-                <minimum_order_quantity>1</minimum_order_quantity>
-                <keywords></keywords>
-                <manufacturer_warranty>1</manufacturer_warranty>
-                <country>Украина</country>
-                <param name="Матеріал"></param>
-                <param name="Бренд">techno-odis</param>
-                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/2.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/2_1_thumb.jpg</picture></offer><offer id="18" available="true">
-                <url>https://techno-odis.com/catalogue/product/staryi-gorod-ft-009</url>
-                <price>5,83</price>
-                <currencyId>USD</currencyId>
-                <categoryId></categoryId>
-                <quantity_in_stock></quantity_in_stock>
-                <name> Старый город фт-009</name>
-                <vendor>techno-odis</vendor>
-                <vendorCode>фт-009</vendorCode>
-                <description><![CDATA[&lt;p&gt;Размер:220х110х40;  Количество: 20.6 на кв.метр.&lt;/p&gt;]]></description>
-                <minimum_order_quantity>1</minimum_order_quantity>
-                <keywords></keywords>
-                <manufacturer_warranty>1</manufacturer_warranty>
-                <country>Украина</country>
-                <param name="Матеріал"></param>
-                <param name="Бренд">techno-odis</param>
-                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/3.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/3_1_thumb.jpg</picture></offer><offer id="19" available="true">
-                <url>https://techno-odis.com/catalogue/product/staryi-gorod-ft-013</url>
-                <price>5,83</price>
-                <currencyId>USD</currencyId>
-                <categoryId></categoryId>
-                <quantity_in_stock></quantity_in_stock>
-                <name>Старый город фт-013</name>
-                <vendor>techno-odis</vendor>
-                <vendorCode>фт-013</vendorCode>
-                <description><![CDATA[&lt;p&gt;Размер: 220х220x40; Количество: 20.6 на кв.метр.&lt;/p&gt;]]></description>
-                <minimum_order_quantity>1</minimum_order_quantity>
-                <keywords></keywords>
-                <manufacturer_warranty>1</manufacturer_warranty>
-                <country>Украина</country>
-                <param name="Матеріал"></param>
-                <param name="Бренд">techno-odis</param>
-                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/4.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/4_1_thumb.jpg</picture></offer><offer id="20" available="true">
-                <url>https://techno-odis.com/catalogue/product/staryi-gorod-ft-018</url>
-                <price>5</price>
-                <currencyId>USD</currencyId>
-                <categoryId></categoryId>
-                <quantity_in_stock></quantity_in_stock>
-                <name>Старый город фт-018</name>
-                <vendor>techno-odis</vendor>
-                <vendorCode>фт-018</vendorCode>
-                <description><![CDATA[&lt;p&gt;Размер: - ;  Количество: 24.0 на кв.метр.&lt;/p&gt;]]></description>
-                <minimum_order_quantity>1</minimum_order_quantity>
-                <keywords></keywords>
-                <manufacturer_warranty>1</manufacturer_warranty>
-                <country>Украина</country>
-                <param name="Матеріал"></param>
-                <param name="Бренд">techno-odis</param>
-                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/5.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/5_1_thumb.jpg</picture></offer><offer id="21" available="true">
-                <url>https://techno-odis.com/catalogue/product/staryi-gorod-ft-005</url>
-                <price>3,17</price>
-                <currencyId>USD</currencyId>
-                <categoryId></categoryId>
-                <quantity_in_stock></quantity_in_stock>
-                <name>Старый город фт-005</name>
-                <vendor>techno-odis</vendor>
-                <vendorCode>фт-005</vendorCode>
-                <description><![CDATA[&lt;p&gt;Размер: 110х50Х40,110х80Х40,110х110Х40; Количество: 37.8 на кв.метр.&lt;/p&gt;]]></description>
-                <minimum_order_quantity>1</minimum_order_quantity>
-                <keywords></keywords>
-                <manufacturer_warranty>1</manufacturer_warranty>
-                <country>Украина</country>
-                <param name="Матеріал"></param>
-                <param name="Бренд">techno-odis</param>
-                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/6.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/6_1_thumb.jpg</picture></offer><offer id="22" available="true">
-                <url>https://techno-odis.com/catalogue/product/bazalt-ft-001</url>
-                <price>6,94</price>
-                <currencyId>USD</currencyId>
-                <categoryId></categoryId>
-                <quantity_in_stock></quantity_in_stock>
-                <name>Базальт фт-001</name>
-                <vendor>techno-odis</vendor>
-                <vendorCode>фт-001</vendorCode>
-                <description><![CDATA[&lt;p&gt;Размер: 120х120x40;  Количество: 17.3 на кв.метр.&lt;/p&gt;]]></description>
-                <minimum_order_quantity>1</minimum_order_quantity>
-                <keywords></keywords>
-                <manufacturer_warranty>1</manufacturer_warranty>
-                <country>Украина</country>
-                <param name="Матеріал"></param>
-                <param name="Бренд">techno-odis</param>
-                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/7.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/7_1_thumb.jpg</picture></offer><offer id="23" available="true">
-                <url>https://techno-odis.com/catalogue/product/bazalt-ft-0181</url>
-                <price>6,94</price>
-                <currencyId>USD</currencyId>
-                <categoryId></categoryId>
-                <quantity_in_stock></quantity_in_stock>
-                <name>Базальт фт-0181</name>
-                <vendor>techno-odis</vendor>
-                <vendorCode>фт-0181</vendorCode>
-                <description><![CDATA[&lt;p&gt;Размер: 240х120x40; Количество: 17.3 на кв.метр.&lt;/p&gt;]]></description>
-                <minimum_order_quantity>1</minimum_order_quantity>
-                <keywords></keywords>
-                <manufacturer_warranty>1</manufacturer_warranty>
-                <country>Украина</country>
-                <param name="Матеріал"></param>
-                <param name="Бренд">techno-odis</param>
-                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/8.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/8_1_thumb.jpg</picture></offer><offer id="24" available="true">
-                <url>https://techno-odis.com/catalogue/product/bazalt-ft-008</url>
-                <price>6,94</price>
-                <currencyId>USD</currencyId>
-                <categoryId></categoryId>
-                <quantity_in_stock></quantity_in_stock>
-                <name>Базальт фт-008</name>
-                <vendor>techno-odis</vendor>
-                <vendorCode>фт-008</vendorCode>
-                <description><![CDATA[&lt;p&gt;Размер: 240х240x40; Количество: 17.3 на кв.метр.&lt;/p&gt;]]></description>
-                <minimum_order_quantity>1</minimum_order_quantity>
-                <keywords></keywords>
-                <manufacturer_warranty>1</manufacturer_warranty>
-                <country>Украина</country>
-                <param name="Матеріал"></param>
-                <param name="Бренд">techno-odis</param>
-                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/9.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/9_1_thumb.jpg</picture></offer><offer id="25" available="true">
-                <url>https://techno-odis.com/catalogue/product/bazalt-ft-004</url>
-                <price>5</price>
-                <currencyId>USD</currencyId>
-                <categoryId></categoryId>
-                <quantity_in_stock></quantity_in_stock>
-                <name>Базальт фт-004</name>
-                <vendor>techno-odis</vendor>
-                <vendorCode>фт-004</vendorCode>
-                <description><![CDATA[&lt;p&gt;Размер: - ;  Количество: 24.0 на кв.метр.&lt;/p&gt;]]></description>
-                <minimum_order_quantity>1</minimum_order_quantity>
-                <keywords></keywords>
-                <manufacturer_warranty>1</manufacturer_warranty>
-                <country>Украина</country>
-                <param name="Матеріал"></param>
-                <param name="Бренд">techno-odis</param>
-                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/10.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/10_1_thumb.jpg</picture></offer><offer id="26" available="true">
-                <url>https://techno-odis.com/catalogue/product/bazalt-ft-019</url>
-                <price>5,22</price>
-                <currencyId>USD</currencyId>
-                <categoryId></categoryId>
-                <quantity_in_stock></quantity_in_stock>
-                <name>Базальт фт-019</name>
-                <vendor>techno-odis</vendor>
-                <vendorCode>фт-019</vendorCode>
-                <description><![CDATA[&lt;p&gt;Размер: 120х60x40; Количество: 23.0 на кв.метр.&lt;/p&gt;]]></description>
-                <minimum_order_quantity>1</minimum_order_quantity>
-                <keywords></keywords>
-                <manufacturer_warranty>1</manufacturer_warranty>
-                <country>Украина</country>
-                <param name="Матеріал"></param>
-                <param name="Бренд">techno-odis</param>
-                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/11.JPG</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/11_1_thumb.jpg</picture></offer><offer id="27" available="true">
-                <url>https://techno-odis.com/catalogue/product/bazalt-ft-012</url>
-                <price>5,22</price>
-                <currencyId>USD</currencyId>
-                <categoryId></categoryId>
-                <quantity_in_stock></quantity_in_stock>
-                <name>Базальт фт-012</name>
-                <vendor>techno-odis</vendor>
-                <vendorCode>фт-012</vendorCode>
-                <description><![CDATA[&lt;p&gt;Размер: 120х90x40; Количество: 23.0 на кв.метр.&lt;/p&gt;]]></description>
-                <minimum_order_quantity>1</minimum_order_quantity>
-                <keywords></keywords>
-                <manufacturer_warranty>1</manufacturer_warranty>
-                <country>Украина</country>
-                <param name="Матеріал"></param>
-                <param name="Бренд">techno-odis</param>
-                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/12.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/12_1_thumb.jpg</picture></offer><offer id="28" available="true">
-                <url>https://techno-odis.com/catalogue/product/bazalt-ft-088</url>
-                <price>10</price>
-                <currencyId>USD</currencyId>
-                <categoryId></categoryId>
-                <quantity_in_stock></quantity_in_stock>
-                <name>Базальт фт-088</name>
-                <vendor>techno-odis</vendor>
-                <vendorCode>фт-088</vendorCode>
-                <description><![CDATA[&lt;p&gt;Размер:175х120х40; Количество: 12.0 на кв.метр.&lt;/p&gt;]]></description>
-                <minimum_order_quantity>1</minimum_order_quantity>
-                <keywords></keywords>
-                <manufacturer_warranty>1</manufacturer_warranty>
-                <country>Украина</country>
-                <param name="Матеріал"></param>
-                <param name="Бренд">techno-odis</param>
-                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/13.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/13_1_thumb.jpg</picture></offer><offer id="29" available="true">
-                <url>https://techno-odis.com/catalogue/product/ft-022d</url>
-                <price>12,5</price>
-                <currencyId>USD</currencyId>
-                <categoryId></categoryId>
-                <quantity_in_stock></quantity_in_stock>
-                <name>ФТ-022д</name>
-                <vendor>techno-odis</vendor>
-                <vendorCode>ФТ-022д</vendorCode>
-                <description><![CDATA[&lt;p&gt;Размер: 480х170х45;&lt;/p&gt;
-&lt;p&gt;Количество: 12,25 шт на кв.метр.&lt;/p&gt;
-&lt;p&gt; &lt;/p&gt;]]></description>
-                <minimum_order_quantity>1</minimum_order_quantity>
-                <keywords></keywords>
-                <manufacturer_warranty>1</manufacturer_warranty>
-                <country>Украина</country>
-                <param name="Матеріал"></param>
-                <param name="Бренд">techno-odis</param>
-                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/65.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/63_1_thumb.jpg</picture></offer><offer id="30" available="true">
-                <url>https://techno-odis.com/catalogue/product/staryi-arbat-ft-015</url>
-                <price>6,67</price>
-                <currencyId>USD</currencyId>
-                <categoryId></categoryId>
-                <quantity_in_stock></quantity_in_stock>
-                <name> Старый арбат фт-015</name>
-                <vendor>techno-odis</vendor>
-                <vendorCode>фт-015</vendorCode>
-                <description><![CDATA[&lt;p&gt;Размер: 234х234x40;Количество: 18.0 на кв.метр.&lt;/p&gt;]]></description>
-                <minimum_order_quantity>1</minimum_order_quantity>
-                <keywords></keywords>
-                <manufacturer_warranty>1</manufacturer_warranty>
-                <country>Украина</country>
-                <param name="Матеріал"></param>
-                <param name="Бренд">techno-odis</param>
-                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/14.png</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/14_1_thumb.jpg</picture></offer><offer id="31" available="true">
-                <url>https://techno-odis.com/catalogue/product/staryi-arbat-ft-016</url>
-                <price>6,67</price>
-                <currencyId>USD</currencyId>
-                <categoryId></categoryId>
-                <quantity_in_stock></quantity_in_stock>
-                <name>Старый арбат фт-016</name>
-                <vendor>techno-odis</vendor>
-                <vendorCode>фт-016</vendorCode>
-                <description><![CDATA[&lt;p&gt;Размер: &lt;span&gt;234х117х40&lt;/span&gt;; Количество: &lt;span&gt;18.0 &lt;/span&gt;на кв.метр.&lt;/p&gt;]]></description>
-                <minimum_order_quantity>1</minimum_order_quantity>
-                <keywords></keywords>
-                <manufacturer_warranty>1</manufacturer_warranty>
-                <country>Украина</country>
-                <param name="Матеріал"></param>
-                <param name="Бренд">techno-odis</param>
-                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/15.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/15_1_thumb.jpg</picture></offer><offer id="32" available="true">
-                <url>https://techno-odis.com/catalogue/product/staryi-arbat-ft-017</url>
-                <price>6,67</price>
-                <currencyId>USD</currencyId>
-                <categoryId></categoryId>
-                <quantity_in_stock></quantity_in_stock>
-                <name>Старый арбат фт-017</name>
-                <vendor>techno-odis</vendor>
-                <vendorCode>фт-017</vendorCode>
-                <description><![CDATA[&lt;p&gt;Размер: &lt;span&gt;117х117х40&lt;/span&gt;; Количество: &lt;span&gt;18.0&lt;/span&gt; на кв.метр.&lt;/p&gt;]]></description>
-                <minimum_order_quantity>1</minimum_order_quantity>
-                <keywords></keywords>
-                <manufacturer_warranty>1</manufacturer_warranty>
-                <country>Украина</country>
-                <param name="Матеріал"></param>
-                <param name="Бренд">techno-odis</param>
-                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/16.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/16_1_thumb.jpg</picture></offer><offer id="33" available="true">
+                <picture>https://techno-odis.com//uploads/catalogue/products/thumb/66.jpg</picture><picture>https://techno-odis.com//uploads/catalogue/products/additional/64_1_thumb.jpg</picture></offer><offer id="33" available="true">
                 <url>https://techno-odis.com/catalogue/product/landshaftnaia-ft-010</url>
                 <price>4,85</price>
                 <currencyId>USD</currencyId>
