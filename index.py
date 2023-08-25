@@ -1,8 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
-import csv
 from datetime import datetime
+from requests_html import HTMLSession
+import random
 
+id = 1
 
 def getFormdekorData():
     categories = [
@@ -28,7 +30,7 @@ def getFormdekorData():
     session = requests.Session()
     session.headers.update(headers)
 
-    for category in categories:
+    for category_index, category in enumerate(categories):
         url = 'https://formdekor.com/' + category + '/'
         response = session.get(url)
 
@@ -49,7 +51,7 @@ def getFormdekorData():
                     soup = BeautifulSoup(response.text, 'html.parser')
                     productsList = soup.select(
                         '.products-category .products-list .product-layout')
-
+                    num_product = 1
                     for product in productsList:
                         product_data = {}
                         pqProduct = BeautifulSoup(str(product), 'html.parser')
@@ -64,7 +66,6 @@ def getFormdekorData():
 
                         productPageUrl = product_data['url']
                         response = session.get(productPageUrl.strip())
-                        print('formdekor: ' + category + product_data['name'] + ' done')
                         if response.status_code == 200:
                             productPage = response.text
                             pqProductPage = BeautifulSoup(
@@ -98,32 +99,19 @@ def getFormdekorData():
                                 product_data['address'] = ''
 
                         products.append(product_data)
+                        print(f'formdekor: product: {num_product}/{len(productsList)}, page: {page}/{len(pages)} category: {category_index + 1}/{len(categories)}')
+                        num_product = num_product + 1
 
-    print(products)
-
+    print('formdekor done! 🥳🥳🥳')
     return products
 
 
 def generate_xml_f(products):
-    output = '<?xml version="1.0" encoding="UTF-8"?>\n' \
-             '<yml_catalog date="' + datetime.now().strftime('%Y-%m-%d %H:%M') + '">\n' \
-             '    <shop>\n' \
-             '        <name>ПУ формы и штампы</name>\n' \
-             '        <company>ФОРМДЕКОР-UA</company>\n' \
-             '        <url>https://formdekor.com/</url>\n' \
-             '        <platform>Opencart</platform>\n' \
-             '        <version>3.0.3.8/1.2.1</version>\n' \
-             '        <currencies>\n' \
-             '            <currency id="USD" rate="1"/>\n' \
-             '        </currencies>\n' \
-             '        <categories>\n' \
-             '            <category id="59"> Поліуретанові штампи</category>\n' \
-             '            <category id="60"> Форми для 3d панелей</category>\n' \
-             '        </categories>\n' \
-             '        <offers>'
+    global id
+    output = ''
 
     for index, product in enumerate(products):
-        output += '<offer id="' + str(index + 1) + '" available="true">\n' \
+        output += '<offer id="' + str(id) + '" available="true">\n' \
                   '        <url>' + product['url'] + '</url>\n' \
                   '        <price>' + product['price'] + '</price>\n' \
                   '        <currencyId>USD</currencyId>\n' \
@@ -148,11 +136,7 @@ def generate_xml_f(products):
         for image in product['images']:
             output += '<picture>' + image + '</picture>'
         output += '</offer>'
-
-    output += '\n' \
-              '                </offers>\n' \
-              '            </shop>\n' \
-              '        </yml_catalog>'
+        id = id + 1
     return output
 
 
@@ -180,14 +164,14 @@ def getTechnoOdisData():
     products = []
     i = 0
 
-    for category in categories:
+    for category_index, category in enumerate(categories):
         url = 'https://techno-odis.com/catalogue/category/' + category
         response = requests.get(url)
 
         if response.status_code == 200:
             soup = BeautifulSoup(response.text, 'html.parser')
             productsList = soup.select('#items-catalog-main .globalFrameProduct')
-
+        num_product = 1
         for product in productsList:
             product_data = {}
             pqProduct = BeautifulSoup(str(product), 'html.parser')
@@ -198,7 +182,6 @@ def getTechnoOdisData():
             response = requests.get(productPageUrl)
 
             if response.status_code == 200:
-                print('techno-odis: ' + category + product_data['name'] + ' done')
                 pqProductPage = BeautifulSoup(response.text, 'html.parser')
                 product_data['price'] = pqProductPage.select_one('.priceVariant').text.strip()
 
@@ -228,30 +211,19 @@ def getTechnoOdisData():
                 product_data['stock'] = stockDiv.get_text().strip().replace('"', '').replace(' ', '') if stockDiv else ''
 
                 products.append(product_data)
+                print(f'techno-odis: product: {num_product}/{len(productsList)}, category: {category_index + 1}/{len(categories)}')
+                num_product = num_product + 1 
 
+
+    print('techno-odis done! 🥳🥳🥳')
     return products
 
 
 def generate_xml_t(products):
-    output = '<?xml version="1.0" encoding="UTF-8"?>\n' \
-             '<yml_catalog date="' + datetime.now().strftime('%Y-%m-%d %H:%M') + '">\n' \
-             '    <shop>\n' \
-             '        <name>ПУ формы и штампы</name>\n' \
-             '        <company>ФОРМДЕКОР-UA</company>\n' \
-             '        <url>https://formdekor.com/</url>\n' \
-             '        <platform>Opencart</platform>\n' \
-             '        <version>3.0.3.8/1.2.1</version>\n' \
-             '        <currencies>\n' \
-             '            <currency id="USD" rate="1"/>\n' \
-             '        </currencies>\n' \
-             '        <categories>\n' \
-             '            <category id="59"> Поліуретанові штампи</category>\n' \
-             '            <category id="60"> Форми для 3d панелей</category>\n' \
-             '        </categories>\n' \
-             '        <offers>'
-
+    global id
+    output = ''
     for index, product in enumerate(products):
-        output += '<offer id="' + str(index + 1) + '" available="true">\n' \
+        output += '<offer id="' + str(id) + '" available="true">\n' \
                   '        <url>' + product['url'] + '</url>\n' \
                   '        <price>' + product['price'] + '</price>\n' \
                   '        <currencyId>USD</currencyId>\n' \
@@ -276,11 +248,7 @@ def generate_xml_t(products):
         for image in product['images']:
             output += '<picture>https://techno-odis.com/' + image + '</picture>'
         output += '</offer>'
-
-    output += '\n' \
-              '                </offers>\n' \
-              '            </shop>\n' \
-              '        </yml_catalog>'
+        id = id + 1
     return output
 
 
@@ -289,21 +257,7 @@ def save_to_xml(data, file_path):
         file.write(data)
 
 
-# Пример использования
-# products = getTechnoOdisData()
-# xml_data = generate_xml_t(products)
-# file_path = 'techno-odis.xml'  # Укажите путь к файлу, куда хотите сохранить XML данные
-# save_to_xml(xml_data, file_path)
-# print(f'Данные успешно сохранены в файл: {file_path}')
-
-# Пример использования
-# products = getFormdekorData()
-# xml_data = generate_xml_f(products)
-# file_path = 'output.xml'  # Укажите путь к файлу, куда хотите сохранить XML данные
-# save_to_xml(xml_data, file_path)
-# print(f'Данные успешно сохранены в файл: {file_path}')
-
-def send_xml_to_server(xml_data1, xml_data2, filename1, filename2):
+def send_xml_to_server(xml_data, filename):
     url = 'https://parser-for-grabiyaka.000webhostapp.com'  # Замените на адрес вашего сервера
 
     headers = {
@@ -311,43 +265,180 @@ def send_xml_to_server(xml_data1, xml_data2, filename1, filename2):
     }
 
     # Преобразуем данные в формат XML
-    xml_str1 = xml_data1
-    xml_str2 = xml_data2
+    xml_str = xml_data
 
     # Отправляем POST-запрос с данными XML1 на сервер
-    files = {'formdekor': (filename1, xml_str1.encode('utf-8'))}
-    response1 = requests.post(url, files=files)
-
-    # Отправляем POST-запрос с данными XML2 на сервер
-    files = {'techno-odis': (filename2, xml_str2.encode('utf-8'))}
-    response2 = requests.post(url, files=files)
+    files = {'parser_data': (filename, xml_str.encode('utf-8'))}
+    response = requests.post(url, files=files)
 
     # Проверяем статусы ответов
-    if response1.status_code == 200 and response2.status_code == 200:
-        print("Оба XML успешно отправлены на сервер!")
+    if response.status_code == 200:
+        print("XML успешно отправлен на сервер!")
 
         # Выводим содержимое ответа сервера
-        print("Ответ сервера на XML1:")
-        print(response1.text)
-
-        print("Ответ сервера на XML2:")
-        print(response2.text)
+        print("Ответ сервера на XML:")
+        print(response.text)
     else:
         print("Ошибка при отправке XML на сервер.")
+        
+def getHitbetonData():
+    categories = [
+        'tvaryny',
+        'ptakhy',
+        'anhely',
+        'liudy',
+        'fentezi',
+        'kashpo',
+        'baliasyny-altanky-ta-inshe',
+        'rizne'
+    ]
+    products = []
+    i = 0
+    productsList = []
+    headers = {
+        'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36 OPR/101.0.0.0',
+        'referer': 'https://hitbeton.com.ua/',
+        'accept-encoding': 'gzip, deflate, br',
+        'cookie': '_gcl_au=1.1.1382130868.1692686260; _ga=GA1.1.1438058064.1692686260; _ga_9TN454D01M=GS1.1.1692716581.4.0.1692716598.0.0.0',
+        'accept-charset': 'utf-8'
+    }
+
+    session = HTMLSession()
+
+    for category_index, category in enumerate(categories):
+        num_page = 1
+        while True: 
+            num_product = 1
+            url = 'https://hitbeton.com.ua/product-category/' + category + '/page/' + str(num_page) + '/'
+            response = session.get(url)
+            if response.status_code == 200:
+                page = response.html
+                product_links = page.find('.products a')
+                for link in product_links:
+                    products_request = session.get(link.attrs['href'])
+                    if products_request.status_code == 200:
+                        product_page = products_request.html
+                        product_data = {}
+                        
+                        product_data['url'] = link.attrs['href']
+                        
+                        description_element = product_page.find('.woocommerce-Tabs-panel--description p', first=True)
+                        if description_element:
+                            product_data['description'] = description_element.text
+                        else:
+                            product_data['description'] = ''
+
+                        name_element = product_page.find('.product_title', first=True)
+                        if name_element:
+                            product_data['name'] = name_element.text
+                        else:
+                            product_data['name'] = ''
+
+                        price_element = product_page.find('.woocommerce-Price-amount bdi', first=True)
+                        if price_element:
+                            product_data['price'] = price_element.text.split()[0]
+                        else:
+                            product_data['price'] = ''
+
+                        picture_elements = product_page.find('figure .woocommerce-product-gallery__image a')
+                        pictures = [picture.attrs['href'] for picture in picture_elements]
+                        if pictures:
+                            product_data['pictures'] = pictures
+                        else:
+                            product_data['pictures'] = []
+
+                        
+                        products.append(product_data)
+                        print(f'hitbeton: product: {num_product}/{len(product_links)}, page: {num_page}, category: {category_index + 1}/{len(categories)}')
+                        num_product = num_product + 1
+                        
+                    
+                num_page = num_page + 1
+            else: break
+          
+    print('hitbeton done! 🥳🥳🥳')
+    return products
+
+def generate_xml_h(products):
+    global id
+    output = ''
+    for index, product in enumerate(products):
+        output += '<offer id="' + str(id) + '" available="true">\n' \
+                  '        <url>' + product['url'] + '</url>\n' \
+                  '        <price>' + product['price'] + '</price>\n' \
+                  '        <currencyId>UAH</currencyId>\n' \
+                  '        <categoryId></categoryId>\n' \
+                  '        <quantity_in_stock></quantity_in_stock>\n' \
+                  '        <name>' + product['name'] + '</name>\n' \
+                  '        <vendor>' + 'hitbeton' + '</vendor>\n' \
+                  '        <vendorCode>' + '' + '</vendorCode>\n' \
+                  '        <description><![CDATA[' + product['description'] + ']]></description>\n' \
+                  '        <keywords>''</keywords>\n' \
+                  '        <country>Украина</country>\n' \
+
+        for image in product['pictures']:
+            output += '<picture>' + image + '</picture>'
+        output += '</offer>'
+        id = id + 1
+    return output
+
+
+def generate_fake_data():
+    names = ['Product A', 'Product B', 'Product C', 'Product D', 'Product E']
+    prices = ['10.99', '24.99', '35.00', '15.49', '19.99']
+    descriptions = ['Description A', 'Description B', 'Description C', 'Description D', 'Description E']
+    picture_urls = ['url1.jpg', 'url2.jpg', 'url3.jpg', 'url4.jpg', 'url5.jpg']
+
+    fake_data = []
+    for _ in range(10):
+        product = {
+            'name': random.choice(names),
+            'price': random.choice(prices),
+            'description': random.choice(descriptions),
+            'pictures': [random.choice(picture_urls) for _ in range(random.randint(1, 5))],
+            'url': 'https://example.com/products/' + str(random.randint(1, 100))
+        }
+        fake_data.append(product)
+    
+    return fake_data
+
+def build_done_xml(array):
+    output = '<?xml version="1.0" encoding="UTF-8"?>\n' \
+             '<yml_catalog date="' + datetime.now().strftime('%Y-%m-%d %H:%M') + '">\n' \
+             '    <shop>\n' \
+             '        <name>Products</name>\n' \
+             '        <company></company>\n' \
+             '        <url></url>\n' \
+             '        <platform>Opencart</platform>\n' \
+             '        <version></version>\n' \
+             '        <currencies>\n' \
+             '            <currency id="USD" rate="1"/>\n' \
+             '        </currencies>\n' \
+             '        <categories>\n' \
+             '            <category id="59"> Поліуретанові штампи</category>\n' \
+             '            <category id="60"> Форми для 3d панелей</category>\n' \
+             '        </categories>\n' \
+             '        <offers>'
+    for el in array: 
+        output += str(el)
+    output += '\n' \
+              '                </offers>\n' \
+              '            </shop>\n' \
+              '        </yml_catalog>'
+    return output
+
+print('program launch...  😱🤯')
 
 # Ваши XML коды, которые нужно отправить на сервер
-xml_data1 = generate_xml_f(getFormdekorData())
-
-xml_data2 = generate_xml_t(getTechnoOdisData())
-
-
-# Имена файлов для отправки на сервер
-filename1 = 'formdekor.xml'
-filename2 = 'techno-odis.xml'
+xml_data = build_done_xml([generate_xml_f(getFormdekorData()), generate_xml_t(getTechnoOdisData()), generate_xml_h(getHitbetonData())])
 
 # Отправка данных на сервер с указанными именами файлов
-send_xml_to_server(xml_data1, xml_data2, filename1, filename2)
+send_xml_to_server(xml_data, 'parser_data.xml')
+input("Press any key to exit... 🤩🥳😘")
 
-input("Нажмите любую клавишу для выхода...")
+
+
+
 
 
