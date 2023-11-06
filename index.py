@@ -3,6 +3,9 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 from requests_html import HTMLSession
 import random
+import requests
+from lxml import etree
+import xml.etree.ElementTree as ET
 
 id = 1
 
@@ -60,8 +63,7 @@ def getFormdekorData():
                             '.price-new').get_text().replace('$', '').strip()
 
                         nameDiv = pqProduct.select_one('h4 a')
-                        product_data['name'] = nameDiv.get_text().replace(
-                            '&', '&quot;').strip()
+                        product_data['name'] = nameDiv.get_text().strip()
                         product_data['category'] = category
 
                         productPageUrl = product_data['url']
@@ -102,7 +104,7 @@ def getFormdekorData():
                         print(f'formdekor: product: {num_product}/{len(productsList)}, page: {page}/{len(pages)} category: {category_index + 1}/{len(categories)}')
                         num_product = num_product + 1
 
-    print('formdekor done! 🥳🥳🥳')
+    print('Formdekor done!')
     return products
 
 
@@ -176,7 +178,7 @@ def getTechnoOdisData():
             product_data = {}
             pqProduct = BeautifulSoup(str(product), 'html.parser')
             product_title = pqProduct.find('.frame-photo-title')
-            product_data['url'] = pqProduct.find('a')['href']
+            product_data['url'] = pqProduct.find('a')['href']  
             product_data['name'] = product_title['title'] if product_title else ''
             productPageUrl = product_data['url']
             response = requests.get(productPageUrl)
@@ -215,7 +217,7 @@ def getTechnoOdisData():
                 num_product = num_product + 1 
 
 
-    print('techno-odis done! 🥳🥳🥳')
+    print('Techno-odis done!')
     return products
 
 
@@ -258,18 +260,16 @@ def save_to_xml(data, file_path):
 
 
 def send_xml_to_server(xml_data, filename):
-    url = 'https://parser-for-grabiyaka.000webhostapp.com'  # Замените на адрес вашего сервера
+    url = 'https://parser-for-grabiyaka.000webhostapp.com'  
 
     headers = {
-        'Content-Type': 'application/xml',  # Указываем тип данных - XML
+        'Content-Type': 'application/xml',  
     }
 
-    # Преобразуем данные в формат XML
     xml_str = xml_data
 
-    # Отправляем POST-запрос с данными XML1 на сервер
     files = {'parser_data': (filename, xml_str.encode('utf-8'))}
-    response = requests.post(url, files=files)
+    response = requests.post(url, files=files, timeout=30)
 
     # Проверяем статусы ответов
     if response.status_code == 200:
@@ -357,7 +357,7 @@ def getHitbetonData():
                 num_page = num_page + 1
             else: break
           
-    print('hitbeton done! 🥳🥳🥳')
+    print('Hitbeton done!')
     return products
 
 def generate_xml_h(products):
@@ -421,21 +421,56 @@ def build_done_xml(array):
              '        </categories>\n' \
              '        <offers>'
     for el in array: 
-        output += str(el)
+        output += str(el).replace('&', '&quot;')
     output += '\n' \
               '                </offers>\n' \
               '            </shop>\n' \
               '        </yml_catalog>'
     return output
 
-print('program launch...  😱🤯')
+def getProductsXML(url):
+    print('Import products from '+ url + '...')
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 OPR/102.0.0.0',
+    }
+    response = requests.get(url, headers=headers)
+    encoding = response.encoding if response.encoding else 'utf-8'
+    xml_data_bytes = response.content
 
-# Ваши XML коды, которые нужно отправить на сервер
-xml_data = build_done_xml([generate_xml_f(getFormdekorData()), generate_xml_t(getTechnoOdisData()), generate_xml_h(getHitbetonData())])
+    root = etree.fromstring(xml_data_bytes)
 
-# Отправка данных на сервер с указанными именами файлов
+    offers = root.xpath('//offers/offer')
+    offer_strings = [etree.tostring(offer, encoding='unicode') for offer in offers]
+    result = ''.join(offer_strings)
+    
+    return result
+
+def save_string_to_xml_file(string_to_save, file_path):
+    root = ET.Element("root")
+
+    element = ET.Element("element")
+    root.append(element)
+
+    text = ET.Element("text")
+    text.text = string_to_save
+    element.append(text)
+
+    tree = ET.ElementTree(root)
+
+    tree.write(file_path, encoding="utf-8")
+
+
+print('program launch...')
+
+xml_data = build_done_xml([generate_xml_f(getFormdekorData()), 
+    generate_xml_t(getTechnoOdisData()), generate_xml_h(getHitbetonData()), 
+    getProductsXML('https://cs3852032.prom.ua/products_feed.xml?hash_tag=873abdb034aaeb2b57a36797818f1e6a&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=uk%2Cru&group_ids=121186603%2C121186630&nested_group_ids=121186603%2C121186630&extra_fields=keywords'),
+    # getProductsXML('https://molli.com.ua/price/prom.xml')
+    ])
+
 send_xml_to_server(xml_data, 'parser_data.xml')
-input("Press any key to exit... 🤩🥳😘")
+
+input("Press any key to exit...")
 
 
 
