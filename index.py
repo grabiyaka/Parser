@@ -268,7 +268,7 @@ def send_xml_to_server(xml_data, filename):
 
     xml_str = xml_data
 
-    files = {'parser_data': (filename, xml_str.encode('utf-8'))}
+    files = {filename: (filename + '.xml', xml_str.encode('utf-8'))}
     response = requests.post(url, files=files, timeout=30)
 
     # Проверяем статусы ответов
@@ -462,13 +462,24 @@ def save_string_to_xml_file(string_to_save, file_path):
 
 print('program launch...')
 
-xml_data = build_done_xml([generate_xml_f(getFormdekorData()), 
-    generate_xml_t(getTechnoOdisData()), generate_xml_h(getHitbetonData()), 
-    getProductsXML('https://cs3852032.prom.ua/products_feed.xml?hash_tag=873abdb034aaeb2b57a36797818f1e6a&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=uk%2Cru&group_ids=121186603%2C121186630&nested_group_ids=121186603%2C121186630&extra_fields=keywords'),
-    # getProductsXML('https://molli.com.ua/price/prom.xml')
-    ])
+FormdekorData = generate_xml_f(getFormdekorData()).replace('&', '&amp;')
+TechnoOdisData = generate_xml_t(getTechnoOdisData()).replace('&', '&amp;')
+HitbetonData = generate_xml_h(getHitbetonData()).replace('&', '&amp;')
+SejmData = getProductsXML('https://cs3852032.prom.ua/products_feed.xml?hash_tag=873abdb034aaeb2b57a36797818f1e6a&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=uk%2Cru&group_ids=121186603%2C121186630&nested_group_ids=121186603%2C121186630&extra_fields=keywords').replace('&', '&amp;')
+MolliData = getProductsXML('https://molli.com.ua/price/prom.xml').replace('&', '&amp;')
 
-send_xml_to_server(xml_data, 'parser_data.xml')
+send_xml_to_server(FormdekorData, 'formdekor_data')
+send_xml_to_server(TechnoOdisData, 'techno_odis_data')
+send_xml_to_server(HitbetonData, 'hitbeton_data')
+send_xml_to_server(SejmData, 'semj_data')
+send_xml_to_server(MolliData, 'molli_data')
+
+response = requests.post('https://parser-for-grabiyaka.000webhostapp.com', data={"success": "true"})
+if response.status_code == 200:
+    print("Ответ сервера:")
+    print(response.text)
+else:
+    print("Произошла ошибка при получении ответа")
 
 input("Press any key to exit...")
 

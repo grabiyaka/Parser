@@ -1,36 +1,75 @@
 <?php
-// Убедитесь, что загрузка файлов разрешена в настройках PHP
 ini_set('file_uploads', 'On');
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 
-// Обработка загруженных файлов
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
-   
-   if(isset($_FILES['parser_data'])){
-        $file1 = $_FILES['parser_data'];
-        // Проверяем наличие ошибок при загрузке файлов
-        if ($file1['error'] === UPLOAD_ERR_OK) {
-            $targetDir = 'xml/'; 
-    
-            $fileName1 = basename($file1['name']);
-            $targetFilePath1 = $targetDir . $fileName1;
-            if (move_uploaded_file($file1['tmp_name'], $targetFilePath1)) {
-                echo 'XML-файл успешно загружен и сохранен.<br>';
-            } else {
-                echo 'Ошибка при сохранении первого XML-файла.<br>';
+
+    $validate = [
+        'formdekor_data',
+        'techno_odis_data',
+        'hitbeton_data',
+        'semj_data',
+        'molli_data'
+    ];
+
+
+    foreach ($validate as $field) {
+        if (isset($_FILES[$field])) {
+            $file = $_FILES[$field];
+            if ($file['error'] === UPLOAD_ERR_OK) {
+                $targetDir = 'xml/';
+
+                $fileName = basename($file['name']);
+                $targetFilePath = $targetDir . $fileName;
+                if (move_uploaded_file($file['tmp_name'], $targetFilePath)) {
+                    echo 'XML-файл успешно загружен и сохранен.<br>';
+                } else {
+                    echo 'Ошибка при сохранении первого XML-файла.<br>';
+                }
+
             }
-            
         }
-    } else{
-        echo "no file parser_data(";
     }
-   
-    
+
+    if (isset($_POST['success']) && $_POST['success'] == true) {
+        $xmlContent = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+        $xmlContent .= '<yml_catalog date="' . date('Y-m-d H:i') . '">' . "\n";
+        $xmlContent .= '    <shop>' . "\n";
+        $xmlContent .= '        <name>Products</name>' . "\n";
+        $xmlContent .= '        <company></company>' . "\n";
+        $xmlContent .= '        <url></url>' . "\n";
+        $xmlContent .= '        <platform>Opencart</platform>' . "\n";
+        $xmlContent .= '        <version></version>' . "\n";
+        $xmlContent .= '        <currencies>' . "\n";
+        $xmlContent .= '            <currency id="USD" rate="1"/>' . "\n";
+        $xmlContent .= '        </currencies>' . "\n";
+        $xmlContent .= '        <categories>' . "\n";
+        $xmlContent .= '            <category id="59"> Поліуретанові штампи</category>' . "\n";
+        $xmlContent .= '            <category id="60"> Форми для 3d панелей</category>' . "\n";
+        $xmlContent .= '        </categories>' . "\n";
+        $xmlContent .= '        <offers>' . "\n";
+
+        foreach ($validate as $field) {
+            $fileName = "xml/{$field}.xml"; // Путь к файлу
+            if (file_exists($fileName)) {
+                $xmlContent .= file_get_contents($fileName);
+            }
+        }
+
+        $xmlContent .= '        </offers>' . "\n";
+        $xmlContent .= '    </shop>' . "\n";
+        $xmlContent .= '</yml_catalog>';
+
+        file_put_contents('xml/parser_data.xml', $xmlContent);
+
+        echo 'success';
+    }
+
+
 } else {
-    echo 'Ошибка загрузки XML-файлов.<br>';
+    echo 'Привет!<br>';
 }
 
 ?>
