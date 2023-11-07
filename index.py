@@ -271,12 +271,10 @@ def send_xml_to_server(xml_data, filename):
     files = {filename: (filename + '.xml', xml_str.encode('utf-8'))}
     response = requests.post(url, files=files, timeout=30)
 
-    # Проверяем статусы ответов
     if response.status_code == 200:
         print("XML успешно отправлен на сервер!")
 
-        # Выводим содержимое ответа сервера
-        print("Ответ сервера на XML:")
+        print("Ответ сервера на " + filename + ":")
         print(response.text)
     else:
         print("Ошибка при отправке XML на сервер.")
@@ -476,8 +474,8 @@ send_xml_to_server(MolliData, 'molli_data')
 
 response = requests.post('https://parser-for-grabiyaka.000webhostapp.com', data={"success": "true"})
 if response.status_code == 200:
-    print("Ответ сервера:")
-    print(response.text)
+    if response.text == 'success':
+        print('Все файлы успешно выгружены и объединены! Программу можно закрывать.')
 else:
     print("Произошла ошибка при получении ответа")
 
