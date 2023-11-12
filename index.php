@@ -1,4 +1,7 @@
 <?php
+
+//index.php on server side
+
 ini_set('file_uploads', 'On');
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -52,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $xmlContent .= '        <offers>' . "\n";
 
         foreach ($validate as $field) {
-            $fileName = "xml/{$field}.xml"; // Путь к файлу
+            $fileName = "xml/{$field}.xml"; 
             if (file_exists($fileName)) {
                 $xmlContent .= file_get_contents($fileName);
             }
