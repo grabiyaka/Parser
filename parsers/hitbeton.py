@@ -1,6 +1,7 @@
-from settings import HTMLSession, id
+from settings import HTMLSession, id, score
 
 def getHitbetonData():
+    global score
     categories = [
         'tvaryny',
         'ptakhy',
@@ -71,6 +72,7 @@ def getHitbetonData():
                         products.append(product_data)
                         print(f'hitbeton: product: {num_product}/{len(product_links)}, page: {num_page}, category: {category_index + 1}/{len(categories)}')
                         num_product = num_product + 1
+                        score = score + 1
                         
                     
                 num_page = num_page + 1

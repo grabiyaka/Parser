@@ -14,7 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'techno_odis_data',
         'hitbeton_data',
         'semj_data',
-        'molli_data'
+        'molli_data',
+        'fortechne_data'
     ];
 
 

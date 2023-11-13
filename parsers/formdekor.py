@@ -1,6 +1,7 @@
-from settings import BeautifulSoup, requests, id
+from settings import BeautifulSoup, requests, id, score
 
 def getFormdekorData():
+    global score
     categories = [
         'poliuretanovye-shtampy',
         'formy-dlya-3d-panelej',
@@ -94,6 +95,7 @@ def getFormdekorData():
                         products.append(product_data)
                         print(f'formdekor: product: {num_product}/{len(productsList)}, page: {page}/{len(pages)} category: {category_index + 1}/{len(categories)}')
                         num_product = num_product + 1
+                        score = score + 1
 
     print('Formdekor done!')
     return products

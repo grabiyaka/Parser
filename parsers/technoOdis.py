@@ -1,6 +1,7 @@
-from settings import BeautifulSoup, requests, id
+from settings import BeautifulSoup, requests, id, score
 
 def getTechnoOdisData():
+    global score
     categories = [
         'carpet-stones',
         'antichnyi-kamen',
@@ -68,6 +69,8 @@ def getTechnoOdisData():
                 products.append(product_data)
                 print(f'techno-odis: product: {num_product}/{len(productsList)}, category: {category_index + 1}/{len(categories)}')
                 num_product = num_product + 1 
+                
+                score = score + 1
 
 
     print('Techno-odis done!')
