@@ -15,7 +15,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'hitbeton_data',
         'semj_data',
         'molli_data',
-        'fortechne_data'
+        'fortechne_data',
+        'de_technik_data',
+        'raduga_data_1',
+        'raduga_data_2'
     ];
 
 
