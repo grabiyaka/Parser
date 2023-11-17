@@ -68,9 +68,12 @@ def getProductsXML(url):
     root = etree.fromstring(xml_data_bytes)
 
     offers_to_remove = root.xpath('//offers/offer[@in_stock="false"]')
-
     for offer in offers_to_remove:
         offer.getparent().remove(offer)
+        
+    available_false_elements = root.xpath('//offers/offer[@available="false"]')
+    for element in available_false_elements:
+        element.getparent().remove(element)
 
     result = ''.join(etree.tostring(child, encoding='unicode') for child in root.xpath('//offers/*'))
     
