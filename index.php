@@ -18,7 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'fortechne_data',
         'de_technik_data',
         'raduga_data_1',
-        'raduga_data_2'
+        'raduga_data_2',
+        'loft-mebel'
     ];
 
 
