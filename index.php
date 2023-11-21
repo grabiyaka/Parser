@@ -19,7 +19,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'de_technik_data',
         'raduga_data_1',
         'raduga_data_2',
-        'loft-mebel'
+        'loft-mebel',
+        'ranger',
+        'vitergear',
+        'ersamed',
+        'terrasport',
+        'websklad',
+        'bona',
+        'kaloriferu',
+        'foks',
+        'drop',
+        'emass',
+        'zenet',
+        'uadron',
+        'abrisart',
+        'elektreka',
+        'itsellopt',
+        'tradepartner',
+        'gastrorag',
+        'airon',
+        'bagland',
+        'blanknote',
+        'spok',
+        'hanert',
+        'sanpid',
+        'partners',
+        'newtea',
+        'gofin',
+        'nosisvoe',
+        'baby-comfrt',
+        'kukuruzabox',
+        'loveyouhome',
+        'lekos',
+        'best-time',
+        'yugtorg',
+        '7bags',
+        'lurex',
+        'matroluxe_1',
+        'matroluxe_2',
+        'matroluxe',
+        'uden',
+        'toybox',
+        'royalshop',
+        'posudograd',
     ];
 
 
@@ -60,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $xmlContent .= '        <offers>' . "\n";
 
         foreach ($validate as $field) {
-            $fileName = "xml/{$field}.xml"; 
+            $fileName = "xml/{$field}.xml";
             if (file_exists($fileName)) {
                 $xmlContent .= file_get_contents($fileName);
             }
