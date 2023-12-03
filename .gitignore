@@ -1,5 +1,6 @@
 index.spec
 build/
 dist/
+xml/
 parsers/__pycache__
 __pycache__

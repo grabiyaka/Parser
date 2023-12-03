@@ -175,8 +175,6 @@ def getProductsXML(url, article=''):
                 all_offers = all_offers + str(el)
                         
             all_offers = all_offers.replace('&', '&amp;') + '</offers>'
-                    
-            # save_to_xml(all_offers, 'offers.xml')
                         
             root = etree.fromstring(all_offers)
             
@@ -294,17 +292,18 @@ drp = [
     getProductsXML('https://shop.uden-s.ua/products_feed.xml?hash_tag=062348e29497f18973544dace7cd8ad4&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=uk%2Cru&group_ids=4185537%2C4192204%2C4192526%2C4235366%2C4272661%2C14539909%2C28341876&nested_group_ids=', 'Уденс'),
 ]
 
-# sites = [
-#     generate_xml_f(getFormdekorData()).replace('&', '&amp;'),
-#     generate_xml_t(getTechnoOdisData()).replace('&', '&amp;'),
-#     generate_xml_h(getHitbetonData()).replace('&', '&amp;'),
-# ]
+sites = [
+    generate_xml_f(getFormdekorData()).replace('&', '&amp;'),
+    generate_xml_t(getTechnoOdisData()).replace('&', '&amp;'),
+    generate_xml_h(getHitbetonData()).replace('&', '&amp;'),
+]
 
 opt = [
     getProductsXML('https://toybox.com.ua/index.php?route=extension/feed/prom_yml_data&sclad=4', 'Бойкот'),
     getProductsXML('https://royalshop.com.ua/feeds/dropshipping-prom-21.xml', 'Ройшо'),
     getProductsXML('https://posudograd.ua/dropship/19125/prom', 'Посуд'),
-    getProductsXML('https://fashion-girl.ua/products_feed.xml?hash_tag=1ca2cdd7ba4b8e31b3f1abe28df6f809&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=ru&group_ids=&extra_fields=', 'Гел')
+    getProductsXML('https://fashion-girl.ua/products_feed.xml?hash_tag=1ca2cdd7ba4b8e31b3f1abe28df6f809&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=ru&group_ids=&extra_fields=', 'Гел'),
+    getProductsXML('http://dwn.royaltoys.com.ua/my/export/dffc79a2-df78-492b-9323-4658bef84449.xml', 'Рояль'),
 ]
 
 zakazn = [
@@ -312,25 +311,15 @@ zakazn = [
     getProductsXML('https://tradepartner.com.ua/content/export/7ee18c6c75274a1099c3d1d27d8599ee.xml?1676101329714', 'Трейдп'),
     getProductsXML('https://loft-mebel.com.ua/module/yamarket/generate', 'Лофт'),
     getProductsXML('https://raduga-mebel.com.ua/products_feed.xml?hash_tag=9eb3ca8841cfc674dbc8f671f7a7ad8f&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=1&yandex_cpa=&process_presence_sure=&languages=uk%2Cru&group_ids=11346773&nested_group_ids=11346773', 'Радуга'),
-    # getProductsXML('https://raduga-mebel.com.ua/products_feed.xml?hash_tag=9eb3ca8841cfc674dbc8f671f7a7ad8f&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=1&yandex_cpa=&process_presence_sure=&languages=uk%2Cru&group_ids=97791228&nested_group_ids=97791228', 'Радуга'),
+    getProductsXML('https://raduga-mebel.com.ua/products_feed.xml?hash_tag=9eb3ca8841cfc674dbc8f671f7a7ad8f&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=1&yandex_cpa=&process_presence_sure=&languages=uk%2Cru&group_ids=97791228&nested_group_ids=97791228', 'Радуга'),
 ]
 
-
-
-save_to_xml(build_done_xml(drp), 'xml/drp.xml')
-    
+   
 save_to_xml(build_done_xml(opt), 'xml/opt.xml')
 
-# save_to_xml(build_done_xml(sites), 'xml/sites.xml')
+save_to_xml(build_done_xml(sites), 'xml/sites.xml')
 
 save_to_xml(build_done_xml(zakazn), 'xml/zakazn.xml')
 
-
-response = requests.post('https://parser-for-grabiyaka.000webhostapp.com', data={"success": "true"})
-if response.status_code == 200:
-    if response.text == 'success':
-        print('Все файлы успешно выгружены и объединены! Программу можно закрывать.')
-else:
-    print("Произошла ошибка при получении ответа")
 
 input("Press any key to exit...")
