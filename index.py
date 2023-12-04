@@ -211,7 +211,7 @@ def getProductsXML(url, article=''):
         for offer in offers_to_remove:
             offer.getparent().remove(offer)
 
-        available_false_elements = root.xpath('//offers/offer[@available="false"]')
+        available_false_elements = root.xpath('//offers/offer[@available!="true"]')
         for element in available_false_elements:
             element.getparent().remove(element)
 
@@ -249,7 +249,7 @@ drp = [
         'Сейм'),
     getProductsXML('https://molli.com.ua/price/prom.xml', 'Молі'),
     getProductsXML('https://cs3218374.prom.ua/products_feed.xml?hash_tag=7dccd0184ad811ba59f127366e3525d2&sales_notes=&product_ids=1932135796%2C1932135795%2C1927190939%2C1927190940%2C1927190941%2C1927190938%2C1927190937%2C1927190934%2C1927190933%2C1927190932%2C1927190930%2C1927190931%2C1927190929%2C1927190927%2C1927190928%2C1927190924%2C1927190926%2C1927190925%2C1927190923%2C1927190922%2C1927190921%2C1927190920%2C1927190919%2C1927190918%2C1927190915%2C1927190917%2C1927190916%2C1927190913%2C1927190914%2C1927190909%2C1927190910%2C1927190911%2C1927190912%2C1867919325%2C1867919326%2C1867919323%2C1867919324%2C1867919321%2C1867919322%2C1867919320%2C1867919319%2C1867919318%2C1867919317%2C1867919316%2C1867919315%2C1867919314%2C1867919312%2C1867919313%2C1867919309%2C1867919311%2C1867919310%2C1867919307%2C1867919308%2C1867919306%2C1867919305%2C1867919303%2C1867919304%2C1867919301%2C1867919302%2C1867919300%2C1867919299%2C1867919297%2C1867919298%2C1867919296%2C1867919295%2C1867919293%2C1867919294%2C1867919292%2C1867919290%2C1867919291%2C1867919289%2C1867919287%2C1867919288%2C1867919286%2C1867919285%2C1867919284%2C1867919282%2C1867919283%2C1867919280%2C1867919281%2C1867919279%2C1867919276%2C1867919278%2C1867919277%2C1867919274%2C1867919273%2C1867919275%2C1867919272%2C1867919271%2C1867919270%2C1867919269%2C1867919268%2C1867919267%2C1867919266%2C1867919265&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=uk%2Cru&group_ids=', 'Фонет'),
-    getProductsXML('https://detechnik.com.ua/products_feed.xml?hash_tag=5ee69bb0fff0d94a4fe0f4687d340a79&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=uk%2Cru&group_ids=&extra_fields=quantityInStock', 'Мегез'),
+
 
     getProductsXML('https://ranger.ua/public/zalivkaukr.xml', 'Палати'),
     getProductsXML('https://vitergear.com.ua/content/export/079b9966a7d87a1f38054780026dc271.xml', 'Подорож'),
@@ -260,7 +260,8 @@ drp = [
     getProductsXML('https://kaloriferu.com.ua/products_feed.xml?hash_tag=d993b7f2c54cae4e758c4f7e4cab6874&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=ru&group_ids=2445141%2C4623178&nested_group_ids=2445141%2C4623178', 'Дід'),
     getProductsXML('https://my.foks.biz/s/pb/f?key=69d0d2a7-70c9-41ff-b7ce-c545f41368aa&type=prom&ext=xml', 'Ян'),
     getProductsXML('http://drop.co.ua/feed/dropprom.xml', 'Інстор'),
-    getProductsXML('https://api.emass.ua/upload/api/ua/cd11d654a2466544600dbfd17d6a7bdc.xml', 'Гро-Гро'),
+    # getProductsXML('https://api.emass.ua/upload/api/ua/cd11d654a2466544600dbfd17d6a7bdc.xml', 'Гро-Гро'),
+    getProductsXML('https://himate.com.ua/index.php?route=feed/unixml/prom', 'Gro'),
 
     getProductsXML('https://uadron.com/products_feed.xml?hash_tag=281dd6d99f9dd4625d3c5e6ffe15f88d&sales_notes=&product_ids=&label_ids=11323491&exclude_fields=&html_description=1&yandex_cpa=&process_presence_sure=&languages=uk%2Cru&group_ids=', 'Дрон'),
     getProductsXML('https://abrisart.com/market-feed-ukraine', 'Вишив'),
@@ -291,12 +292,15 @@ drp = [
     getProductsXML('https://levistella.com/products_feed.xml?hash_tag=94b05f555f35832558cabf51092dc40c&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=uk%2Cru&group_ids=83613786%2C84269756%2C84454361%2C84541557%2C88799547%2C88800636%2C89099608%2C94782488%2C107706705%2C107825436%2C107926793&nested_group_ids=83613786%2C84269756%2C84454361%2C84541557%2C89099608%2C94782488%2C107706705%2C107825436', 'Стелла'),
     getProductsXML('https://shop.uden-s.ua/products_feed.xml?hash_tag=062348e29497f18973544dace7cd8ad4&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=uk%2Cru&group_ids=4185537%2C4192204%2C4192526%2C4235366%2C4272661%2C14539909%2C28341876&nested_group_ids=', 'Уденс'),
 ]
+save_to_xml(build_done_xml(drp), 'xml/drp.xml')
 
 sites = [
     generate_xml_f(getFormdekorData()).replace('&', '&amp;'),
     generate_xml_t(getTechnoOdisData()).replace('&', '&amp;'),
     generate_xml_h(getHitbetonData()).replace('&', '&amp;'),
+    getProductsXML('https://velomarket24.com.ua/products_feed.xml?hash_tag=ed5e87b0f593a6b91642b9f6fa4cf737&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=ru&group_ids=', 'Tek'),
 ]
+save_to_xml(build_done_xml(sites), 'xml/sites.xml')
 
 opt = [
     getProductsXML('https://toybox.com.ua/index.php?route=extension/feed/prom_yml_data&sclad=4', 'Бойкот'),
@@ -305,6 +309,7 @@ opt = [
     getProductsXML('https://fashion-girl.ua/products_feed.xml?hash_tag=1ca2cdd7ba4b8e31b3f1abe28df6f809&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=ru&group_ids=&extra_fields=', 'Гел'),
     getProductsXML('http://dwn.royaltoys.com.ua/my/export/dffc79a2-df78-492b-9323-4658bef84449.xml', 'Рояль'),
 ]
+save_to_xml(build_done_xml(opt), 'xml/opt.xml')
 
 zakazn = [
     getProductsXML('https://zenet-proizvoditel-klimaticheskoj-tehniki-i-cs2951573.prom.ua/products_feed.xml?hash_tag=c15bef90f54a3bbfd857a5f43cfb86e0&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=1&yandex_cpa=&process_presence_sure=&languages=uk%2Cru&group_ids=&extra_fields=', 'Зен'),
@@ -312,14 +317,15 @@ zakazn = [
     getProductsXML('https://loft-mebel.com.ua/module/yamarket/generate', 'Лофт'),
     getProductsXML('https://raduga-mebel.com.ua/products_feed.xml?hash_tag=9eb3ca8841cfc674dbc8f671f7a7ad8f&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=1&yandex_cpa=&process_presence_sure=&languages=uk%2Cru&group_ids=11346773&nested_group_ids=11346773', 'Радуга'),
     getProductsXML('https://raduga-mebel.com.ua/products_feed.xml?hash_tag=9eb3ca8841cfc674dbc8f671f7a7ad8f&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=1&yandex_cpa=&process_presence_sure=&languages=uk%2Cru&group_ids=97791228&nested_group_ids=97791228', 'Радуга'),
+    getProductsXML('https://detechnik.com.ua/products_feed.xml?hash_tag=5ee69bb0fff0d94a4fe0f4687d340a79&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=uk%2Cru&group_ids=&extra_fields=quantityInStock', 'Мегез'),
 ]
+save_to_xml(build_done_xml(zakazn), 'xml/zakazn.xml')
 
    
-save_to_xml(build_done_xml(opt), 'xml/opt.xml')
 
-save_to_xml(build_done_xml(sites), 'xml/sites.xml')
 
-save_to_xml(build_done_xml(zakazn), 'xml/zakazn.xml')
+
+
 
 
 input("Press any key to exit...")
