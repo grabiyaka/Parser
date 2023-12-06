@@ -201,7 +201,7 @@ def getProductsXML(url, article=''):
             for picture in pictures:
                 picture.tag = 'image'
         
-        offers_to_remove = root.xpath('//offers/offer[@in_stock="false"]')
+        offers_to_remove = root.xpath('//offers/offer[@in_stock!="true"]')
         for offer in offers_to_remove:
             offer.getparent().remove(offer)
             
@@ -230,7 +230,7 @@ def getProductsXML(url, article=''):
                         vendor_code_element.text = article
                 else:
                     new_vendor_code_element = etree.Element('vendorCode')
-                    new_vendor_code_element.text = article
+                    new_vendor_code_element.text = offer.get('id') + ' ' + article
                     offer.append(new_vendor_code_element)
 
 
@@ -329,9 +329,9 @@ zakazn = [
 save_to_xml(build_done_xml(zakazn), 'xml/zakazn.xml')
 
 avto = [
-    getProductsXML('https://ddaudio.com.ua/uploads/xml/big_stock.xml', 'avto'),
-    getProductsXML('https://voodoocar.com/products_feed.xml?hash_tag=fdb2fca9f2a63e912ad7c8f88b81b436&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=ru&group_ids=', 'avto'),
-    getProductsXML('https://vitol.com.ua/export.php?exporttype=2%C2%A4cy=uah&saleprice=1&lang=ru&available=1&tofile=1&token=3c4ea03a3d59e7e2aa04bd87ad9b9244', 'avto'),
+    getProductsXML('https://ddaudio.com.ua/uploads/xml/big_stock.xml', 'da'),
+    getProductsXML('https://voodoocar.com/products_feed.xml?hash_tag=fdb2fca9f2a63e912ad7c8f88b81b436&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=ru&group_ids=', 'car'),
+    getProductsXML('https://vitol.com.ua/export.php?exporttype=2%C2%A4cy=uah&saleprice=1&lang=ru&available=1&tofile=1&token=3c4ea03a3d59e7e2aa04bd87ad9b9244', 'lot'),
 ]
 save_to_xml(build_done_xml(avto), 'xml/avto.xml')
    
