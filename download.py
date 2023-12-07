@@ -21,7 +21,7 @@ def download_xml_file(xml_url, file_name):
         print(f'Произошла ошибка: {str(e)}')
 
 if __name__ == "__main__":
-    xml_url = 'http://elijah.kiev.ua/Parser/xml/drp.xml'
-    file_name = 'drp'
+    xml_url = 'https://my.foks.biz/s/pb/f?key=69d0d2a7-70c9-41ff-b7ce-c545f41368aa&type=prom&ext=xml'
+    file_name = 'yan'
 
     download_xml_file(xml_url, file_name)

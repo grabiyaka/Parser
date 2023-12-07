@@ -105,7 +105,7 @@ def build_done_xml(array):
              '        </categories>\n' \
              '        <offers>'
     for el in array: 
-        output += str(el).replace('&', '&quot;')
+        output += str(el)
     output += '\n' \
               '                </offers>\n' \
               '            </shop>\n' \
@@ -162,6 +162,8 @@ def getProductsXML(url, article=''):
 
             for item in root.xpath('//offers/item'):
                 item.tag = 'offer'
+                if 'in_stock' in item.attrib:
+                    item.attrib['in_stock'] = 'available'
 
             offers = root.xpath('//offers/offer')
             
@@ -174,7 +176,7 @@ def getProductsXML(url, article=''):
             for el in offers:
                 all_offers = all_offers + str(el)
                         
-            all_offers = all_offers.replace('&', '&amp;') + '</offers>'
+            all_offers = all_offers + '</offers>'
                         
             root = etree.fromstring(all_offers)
             
@@ -187,9 +189,11 @@ def getProductsXML(url, article=''):
             for el in offers:
                 all_offers = all_offers + str(el)
                     
-            all_offers = all_offers.replace('&', '&amp;') + '</offers>'
+            all_offers = all_offers + '</offers>'
             
             root = etree.fromstring(all_offers)
+            
+        # elif  root.tag.endswith('ym_catalog'):
             
         ###
         
@@ -238,7 +242,7 @@ def getProductsXML(url, article=''):
 
         score = score + len(root.xpath('//offers/offer'))
 
-        return result.replace('&', '&amp;')
+        return result
 
     except requests.exceptions.RequestException as e:
         print(f"Error during HTTP request: {e}")
@@ -301,13 +305,13 @@ drp = [
 ]
 save_to_xml(build_done_xml(drp), 'xml/drp.xml')
 
-sites = [
-    generate_xml_f(getFormdekorData()).replace('&', '&amp;'),
-    generate_xml_t(getTechnoOdisData()).replace('&', '&amp;'),
-    generate_xml_h(getHitbetonData()).replace('&', '&amp;'),
-    getProductsXML('https://velomarket24.com.ua/products_feed.xml?hash_tag=ed5e87b0f593a6b91642b9f6fa4cf737&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=ru&group_ids=', 'Tek'),
-]
-save_to_xml(build_done_xml(sites), 'xml/sites.xml')
+# sites = [
+#     generate_xml_f(getFormdekorData()).replace('&', '&amp;'),
+#     generate_xml_t(getTechnoOdisData()).replace('&', '&amp;'),
+#     generate_xml_h(getHitbetonData()).replace('&', '&amp;'),
+#     getProductsXML('https://velomarket24.com.ua/products_feed.xml?hash_tag=ed5e87b0f593a6b91642b9f6fa4cf737&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=ru&group_ids=', 'Tek'),
+# ]
+# save_to_xml(build_done_xml(sites), 'xml/sites.xml')
 
 opt = [
     getProductsXML('https://toybox.com.ua/index.php?route=extension/feed/prom_yml_data&sclad=4', 'Бойкот'),
@@ -334,11 +338,5 @@ avto = [
     getProductsXML('https://vitol.com.ua/export.php?exporttype=2%C2%A4cy=uah&saleprice=1&lang=ru&available=1&tofile=1&token=3c4ea03a3d59e7e2aa04bd87ad9b9244', 'lot'),
 ]
 save_to_xml(build_done_xml(avto), 'xml/avto.xml')
-   
-
-
-
-
-
 
 input("Press any key to exit...")
