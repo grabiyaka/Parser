@@ -193,7 +193,7 @@ def getProductsXML(url, article=''):
             
             root = etree.fromstring(all_offers)
             
-        # elif  root.tag.endswith('ym_catalog'):
+        # elif  root.tag.endswith('yml_catalog'):
             
         ###
         
@@ -226,6 +226,10 @@ def getProductsXML(url, article=''):
 
                 if vendor_element is not None and vendor_element.text is not None:
                     vendor_element.text = vendor_element.text + ' ' + article
+                else:
+                    new_vendor_element = etree.Element('vendor')
+                    new_vendor_element.text = article
+                    offer.append(new_vendor_element)
 
                 if vendor_code_element is not None:
                     if vendor_code_element.text is not None:
@@ -249,7 +253,7 @@ def getProductsXML(url, article=''):
         return None
 
     except etree.XMLSyntaxError as e:
-        print(f"Error parsing XML: {e}")
+        print(f"Error parsing XML (" + article + "): {e}")
         return None
 
 
@@ -264,7 +268,7 @@ drp = [
 
     getProductsXML('https://ranger.ua/public/zalivkaukr.xml', 'Палати'),
     getProductsXML('https://vitergear.com.ua/content/export/079b9966a7d87a1f38054780026dc271.xml', 'Подорож'),
-    getProductsXML('https://ersamed.prom.ua/products_feed.xml?hash_tag=961c85cfa9c663ec283418017830efb4&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=1&yandex_cpa=&process_presence_sure=&languages=uk%2Cru&group_ids=', 'Ерс'),
+    getProductsXML('https://orthofreedom.com.ua/products_feed.xml?hash_tag=2816faa525c8332b233a18470758b632&sales_notes=&product_ids=&label_ids=14183265&exclude_fields=&html_description=1&yandex_cpa=&process_presence_sure=&languages=uk%2Cru&group_ids=&extra_fields=keywords', 'Ерс'),
     getProductsXML('https://terrasport.ua/xml/sveltus.xml', 'Терас'),
     getProductsXML('https://www.websklad.biz.ua/wp-content/uploads/randomize_prom_40282.xml', 'Складвеб'),
     getProductsXML('https://bona-store.prom.ua/google_merchant_center.xml?hash_tag=bd35f3ed6dd506edb27edbc0be2345a5&product_ids=&label_ids=&export_lang=ru&group_ids=73357627%2C73420209%2C73420212%2C73420213%2C82869744&nested_group_ids=73357627%2C73420209%2C73420212%2C73420213%2C82869744', 'Бонагиль'),
@@ -291,7 +295,7 @@ drp = [
     getProductsXML('https://gofin.biz/index.php?route=extension/feed/neoseo_product_feed&name=prom_ru', 'Гофі'),
     getProductsXML('https://nosisvoe.com.ua/rozetka_feed.xml', 'Носи'),
     getProductsXML('https://baby-comfrt.prom.ua/yandex_market.xml?hash_tag=06bbd7ee5bcaac2dab84f1337a54434f&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=ru&group_ids=86546354%2C86546356%2C86546358%2C86546359%2C91593455%2C94597402%2C95833412%2C97079049&nested_group_ids=', 'Бебі'),
-    getProductsXML('https://kukuruzabox.com.ua/ua/cp35969-programma-loyalnosti-dlya-postoyannyh-klientov.html', 'Ку'),
+    getProductsXML('https://kukuruzabox.com.ua/products_feed.xml?hash_tag=58ee6724781917b0cf6d043572013925&sales_notes=&product_ids=&label_ids=&exclude_fields=description&html_description=0&yandex_cpa=&process_presence_sure=&languages=uk&group_ids=2323313%2C2509099%2C22798006%2C85080759%2C98570328&nested_group_ids=2323313%2C2509099%2C22798006%2C85080759%2C98570328&extra_fields=', 'Ку'),
     getProductsXML('https://loveyouhome.ua/index.php?route=extension/feed/unixml/prom', 'Лав'),
     getProductsXML('https://lekos.com.ua/partner/', 'Еко'),
     getProductsXML('https://support.best-time.biz/api/feed/drops/ua', 'Тайм'),
@@ -302,16 +306,21 @@ drp = [
     getProductsXML('https://matroluxe.ua/index.php?route=extension/feed/yandex_yml8', 'Люкс'),
     getProductsXML('https://levistella.com/products_feed.xml?hash_tag=94b05f555f35832558cabf51092dc40c&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=uk%2Cru&group_ids=83613786%2C84269756%2C84454361%2C84541557%2C88799547%2C88800636%2C89099608%2C94782488%2C107706705%2C107825436%2C107926793&nested_group_ids=83613786%2C84269756%2C84454361%2C84541557%2C89099608%2C94782488%2C107706705%2C107825436', 'Стелла'),
     getProductsXML('https://shop.uden-s.ua/products_feed.xml?hash_tag=062348e29497f18973544dace7cd8ad4&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=uk%2Cru&group_ids=4185537%2C4192204%2C4192526%2C4235366%2C4272661%2C14539909%2C28341876&nested_group_ids=', 'Уденс'),
+
+    getProductsXML('https://hanert.com.ua/shop.xml', 'Ren'),
+    getProductsXML('https://gofin.biz/index.php?route=extension/feed/unixml/prom_for_estet', 'Fin'),
+    getProductsXML('https://kukuruzabox.com.ua/products_feed.xml?hash_tag=58ee6724781917b0cf6d043572013925&sales_notes=&product_ids=&label_ids=&exclude_fields=description&html_description=0&yandex_cpa=&process_presence_sure=&languages=uk&group_ids=2323313%2C2509099%2C22798006%2C85080759%2C98570328&nested_group_ids=2323313%2C2509099%2C22798006%2C85080759%2C98570328&extra_fields=', 'Kuku'),
+    getProductsXML('https://wowshop.ua/index.php?route=extension/feed/ocext_feed_generator_yamarket&token=5287', 'Воов')
 ]
 save_to_xml(build_done_xml(drp), 'xml/drp.xml')
 
-# sites = [
-#     generate_xml_f(getFormdekorData()).replace('&', '&amp;'),
-#     generate_xml_t(getTechnoOdisData()).replace('&', '&amp;'),
-#     generate_xml_h(getHitbetonData()).replace('&', '&amp;'),
-#     getProductsXML('https://velomarket24.com.ua/products_feed.xml?hash_tag=ed5e87b0f593a6b91642b9f6fa4cf737&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=ru&group_ids=', 'Tek'),
-# ]
-# save_to_xml(build_done_xml(sites), 'xml/sites.xml')
+sites = [
+    generate_xml_f(getFormdekorData()).replace('&', '&amp;'),
+    generate_xml_t(getTechnoOdisData()).replace('&', '&amp;'),
+    generate_xml_h(getHitbetonData()).replace('&', '&amp;'),
+    getProductsXML('https://velomarket24.com.ua/products_feed.xml?hash_tag=ed5e87b0f593a6b91642b9f6fa4cf737&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=ru&group_ids=', 'Tek'),
+]
+save_to_xml(build_done_xml(sites), 'xml/sites.xml')
 
 opt = [
     getProductsXML('https://toybox.com.ua/index.php?route=extension/feed/prom_yml_data&sclad=4', 'Бойкот'),
