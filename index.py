@@ -200,6 +200,11 @@ def getProductsXML(url, article=''):
         offers = root.xpath('//offers/offer')
         
         for offer in offers:
+            group_id = offer.get("group_id")
+            if group_id is not None:
+                offer.set("group_id", f"{group_id} {article}")
+        
+        for offer in offers:
             pictures = offer.xpath('.//picture')
             
             for picture in pictures:
@@ -275,7 +280,6 @@ drp = [
     getProductsXML('https://kaloriferu.com.ua/products_feed.xml?hash_tag=d993b7f2c54cae4e758c4f7e4cab6874&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=ru&group_ids=2445141%2C4623178&nested_group_ids=2445141%2C4623178', 'Дід'),
     getProductsXML('https://my.foks.biz/s/pb/f?key=69d0d2a7-70c9-41ff-b7ce-c545f41368aa&type=prom&ext=xml', 'Ян'),
     getProductsXML('http://drop.co.ua/feed/dropprom.xml', 'Інстор'),
-    # getProductsXML('https://api.emass.ua/upload/api/ua/cd11d654a2466544600dbfd17d6a7bdc.xml', 'Гро-Гро'),
     getProductsXML('https://himate.com.ua/index.php?route=feed/unixml/prom', 'Gro'),
 
     getProductsXML('https://uadron.com/products_feed.xml?hash_tag=281dd6d99f9dd4625d3c5e6ffe15f88d&sales_notes=&product_ids=&label_ids=11323491&exclude_fields=&html_description=1&yandex_cpa=&process_presence_sure=&languages=uk%2Cru&group_ids=', 'Дрон'),
