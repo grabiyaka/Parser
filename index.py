@@ -140,6 +140,7 @@ def send_xml_to_server(xml_data, filename):
 
 def getProductsXML(url, article=''):
     global score
+    global id
 
     try:
         print('Import products from ' + article + '...')
@@ -152,6 +153,7 @@ def getProductsXML(url, article=''):
         xml_data_bytes = response.content
         
         offers = []
+        
         root = etree.fromstring(xml_data_bytes)
     
         ### FORMAT ROOT IF THIS NEED
@@ -216,7 +218,7 @@ def getProductsXML(url, article=''):
             
         offers_to_remove = []
             
-        offers_to_remove = root.xpath('//offers/offer[number(price) < 500]')
+        offers_to_remove = root.xpath('//offers/offer[number(translate(price, ",", ".")) < 500]')
         for offer in offers_to_remove:
             offer.getparent().remove(offer)
 
@@ -238,15 +240,15 @@ def getProductsXML(url, article=''):
 
                 if vendor_code_element is not None:
                     if vendor_code_element.text is not None:
-                        vendor_code_element.text = vendor_code_element.text + ' ' + article
+                        vendor_code_element.text = vendor_code_element.text + str(id) + ' ' + article
                     else:
-                        vendor_code_element.text = article
+                        vendor_code_element.text = str(id) + ' ' + article
                 else:
                     new_vendor_code_element = etree.Element('vendorCode')
-                    new_vendor_code_element.text = offer.get('id') + ' ' + article
+                    new_vendor_code_element.text = offer.get('id') + str(id) + ' ' + article
                     offer.append(new_vendor_code_element)
-
-
+            id = id + 1
+        
         result = ''.join(etree.tostring(child, encoding='unicode') for child in root.xpath('//offers/*'))
 
         score = score + len(root.xpath('//offers/offer'))
@@ -258,7 +260,7 @@ def getProductsXML(url, article=''):
         return None
 
     except etree.XMLSyntaxError as e:
-        print(f"Error parsing XML (" + article + "): {e}")
+        print(f"Error parsing XML ({article}): {e}")
         return None
 
 
@@ -283,13 +285,11 @@ drp = [
     getProductsXML('https://himate.com.ua/index.php?route=feed/unixml/prom', 'Gro'),
 
     getProductsXML('https://uadron.com/products_feed.xml?hash_tag=281dd6d99f9dd4625d3c5e6ffe15f88d&sales_notes=&product_ids=&label_ids=11323491&exclude_fields=&html_description=1&yandex_cpa=&process_presence_sure=&languages=uk%2Cru&group_ids=', 'Дрон'),
-    getProductsXML('https://abrisart.com/market-feed-ukraine', 'Вишив'),
     getProductsXML('https://elektreka.com.ua/system/storage/download/v_nayavnost_yml.xml', 'Електр'),
     getProductsXML('http://itsellopt.com.ua/price_lists/general_price_cC9Ulx.xml', 'Ітсел'),
 
     getProductsXML('https://gastrorag.ua/feed.xml', 'Гастро'),
     getProductsXML('https://airon.ua/xml-prices/airon_partner.xml', 'Айрон'),
-    getProductsXML('https://bagland.com.ua/marketplace/43884.xml', 'Багле'),
     getProductsXML('https://blanknote.ua/index.php?route=feed/yandex_marketnew_ua', 'Блокнот'),
     getProductsXML('https://spok.ua/content/export/5b0fa426f203508f146837a161303a3a.xml', 'Кіндер'),
     getProductsXML('https://hanert.com.ua/my-account-2/', 'Хане'),
@@ -305,10 +305,8 @@ drp = [
     getProductsXML('https://support.best-time.biz/api/feed/drops/ua', 'Тайм'),
     getProductsXML('https://b2b.yugtorg.com/upload/yml/yml_256.xml', 'Юг'),
     getProductsXML('https://7bags.com.ua/yandexmarket/a59358ef-6a08-4481-86c3-0a9b1b737acf.xml', '7сум'),
-    getProductsXML('https://lurex.in.ua/uploads/export/marketplace_prom.xml', 'Рекс'),
     getProductsXML('https://matroluxe.ua/index.php?route=extension/feed/yandex_yml9', 'Люкс'),
     getProductsXML('https://matroluxe.ua/index.php?route=extension/feed/yandex_yml8', 'Люкс'),
-    getProductsXML('https://levistella.com/products_feed.xml?hash_tag=94b05f555f35832558cabf51092dc40c&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=uk%2Cru&group_ids=83613786%2C84269756%2C84454361%2C84541557%2C88799547%2C88800636%2C89099608%2C94782488%2C107706705%2C107825436%2C107926793&nested_group_ids=83613786%2C84269756%2C84454361%2C84541557%2C89099608%2C94782488%2C107706705%2C107825436', 'Стелла'),
     getProductsXML('https://shop.uden-s.ua/products_feed.xml?hash_tag=062348e29497f18973544dace7cd8ad4&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=uk%2Cru&group_ids=4185537%2C4192204%2C4192526%2C4235366%2C4272661%2C14539909%2C28341876&nested_group_ids=', 'Уденс'),
 
     getProductsXML('https://hanert.com.ua/shop.xml', 'Ren'),
@@ -317,6 +315,7 @@ drp = [
     getProductsXML('https://wowshop.ua/index.php?route=extension/feed/ocext_feed_generator_yamarket&token=5287', 'Воов')
 ]
 save_to_xml(build_done_xml(drp), 'xml/drp.xml')
+drp = []
 
 sites = [
     generate_xml_f(getFormdekorData()).replace('&', '&amp;'),
@@ -325,15 +324,17 @@ sites = [
     getProductsXML('https://velomarket24.com.ua/products_feed.xml?hash_tag=ed5e87b0f593a6b91642b9f6fa4cf737&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=ru&group_ids=', 'Tek'),
 ]
 save_to_xml(build_done_xml(sites), 'xml/sites.xml')
+sites = []
 
 opt = [
     getProductsXML('https://toybox.com.ua/index.php?route=extension/feed/prom_yml_data&sclad=4', 'Бойкот'),
     getProductsXML('https://royalshop.com.ua/feeds/dropshipping-prom-21.xml', 'Ройшо'),
     getProductsXML('https://posudograd.ua/dropship/19125/prom', 'Посуд'),
     getProductsXML('https://fashion-girl.ua/products_feed.xml?hash_tag=1ca2cdd7ba4b8e31b3f1abe28df6f809&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=ru&group_ids=&extra_fields=', 'Гел'),
-    getProductsXML('http://dwn.royaltoys.com.ua/my/export/dffc79a2-df78-492b-9323-4658bef84449.xml', 'Рояль'),
+    getProductsXML('https://dwn.royaltoys.com.ua/my/export/da9e4096-c520-4b31-af66-1b62cd42d345.xml', 'Рояль'),
 ]
 save_to_xml(build_done_xml(opt), 'xml/opt.xml')
+opt = []
 
 zakazn = [
     getProductsXML('https://zenet-proizvoditel-klimaticheskoj-tehniki-i-cs2951573.prom.ua/products_feed.xml?hash_tag=c15bef90f54a3bbfd857a5f43cfb86e0&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=1&yandex_cpa=&process_presence_sure=&languages=uk%2Cru&group_ids=&extra_fields=', 'Зен'),
@@ -341,9 +342,10 @@ zakazn = [
     getProductsXML('https://loft-mebel.com.ua/module/yamarket/generate', 'Лофт'),
     getProductsXML('https://raduga-mebel.com.ua/products_feed.xml?hash_tag=9eb3ca8841cfc674dbc8f671f7a7ad8f&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=1&yandex_cpa=&process_presence_sure=&languages=uk%2Cru&group_ids=11346773&nested_group_ids=11346773', 'Радуга'),
     getProductsXML('https://raduga-mebel.com.ua/products_feed.xml?hash_tag=9eb3ca8841cfc674dbc8f671f7a7ad8f&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=1&yandex_cpa=&process_presence_sure=&languages=uk%2Cru&group_ids=97791228&nested_group_ids=97791228', 'Радуга'),
-    getProductsXML('https://detechnik.com.ua/products_feed.xml?hash_tag=5ee69bb0fff0d94a4fe0f4687d340a79&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=uk%2Cru&group_ids=&extra_fields=quantityInStock', 'Мегез'),
+    
 ]
 save_to_xml(build_done_xml(zakazn), 'xml/zakazn.xml')
+zakazn = []
 
 avto = [
     getProductsXML('https://ddaudio.com.ua/uploads/xml/big_stock.xml', 'da'),
@@ -351,5 +353,18 @@ avto = [
     getProductsXML('https://vitol.com.ua/export.php?exporttype=2%C2%A4cy=uah&saleprice=1&lang=ru&available=1&tofile=1&token=3c4ea03a3d59e7e2aa04bd87ad9b9244', 'lot'),
 ]
 save_to_xml(build_done_xml(avto), 'xml/avto.xml')
+avto = []
+
+dh = [
+    getProductsXML('https://abrisart.com/market-feed-ukraine', 'Вишив'),
+    getProductsXML('https://bagland.com.ua/marketplace/43884.xml', 'Багле'),
+    getProductsXML('https://levistella.com/products_feed.xml?hash_tag=94b05f555f35832558cabf51092dc40c&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=uk%2Cru&group_ids=83613786%2C84269756%2C84454361%2C84541557%2C88799547%2C88800636%2C89099608%2C94782488%2C107706705%2C107825436%2C107926793&nested_group_ids=83613786%2C84269756%2C84454361%2C84541557%2C89099608%2C94782488%2C107706705%2C107825436', 'Стелла'),
+    getProductsXML('http://buy-club.com.ua/buy-club.xml', 'bul'),
+    getProductsXML('https://lurex.in.ua/uploads/export/marketplace_prom.xml', 'Рекс'),
+    getProductsXML('https://wowshop.ua/index.php?route=extension/feed/ocext_feed_generator_yamarket&token=5287', 'Воов'),
+    getProductsXML('https://cs3852032.prom.ua/products_feed.xml?hash_tag=873abdb034aaeb2b57a36797818f1e6a&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=uk%2Cru&group_ids=121186603%2C121186630&nested_group_ids=121186603%2C121186630&extra_fields=keywords', 'Сей'),
+]
+save_to_xml(build_done_xml(dh), 'xml/dh.xml')
+dh = []
 
 input("Press any key to exit...")
