@@ -76,7 +76,7 @@ def getTechnoOdisData():
     print('Techno-odis done!')
     return products
 
-def generate_xml_t(products):
+def generate_xml_t(products, article):
     global id
     output = ''
     for index, product in enumerate(products):
@@ -88,7 +88,7 @@ def generate_xml_t(products):
                   '        <quantity_in_stock></quantity_in_stock>\n' \
                   '        <name>' + product['name'] + '</name>\n' \
                   '        <vendor>' + 'techno-odis' + '</vendor>\n' \
-                  '        <vendorCode>' + product['model'] + '</vendorCode>\n' \
+                  '        <vendorCode>' + product['model'] + ' ' + article + '</vendorCode>\n' \
                   '        <description><![CDATA[' + product['description'] + ']]></description>\n' \
                   '        <keywords>'
         for key, word in enumerate(product['key_words']):

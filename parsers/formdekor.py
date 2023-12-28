@@ -100,7 +100,7 @@ def getFormdekorData():
     print('Formdekor done!')
     return products
 
-def generate_xml_f(products):
+def generate_xml_f(products, article):
     global id
     output = ''
 
@@ -113,7 +113,7 @@ def generate_xml_f(products):
                   '        <quantity_in_stock></quantity_in_stock>\n' \
                   '        <name>' + product['name'] + '</name>\n' \
                   '        <vendor>' + product['brand'] + '</vendor>\n' \
-                  '        <vendorCode>' + product['model'] + '</vendorCode>\n' \
+                  '        <vendorCode>' + product['model'] + ' ' + article + '</vendorCode>\n' \
                   '        <description><![CDATA[' + product['description'] + ']]></description>\n' \
                   '        <keywords>'
         for key, word in enumerate(product['key_words']):

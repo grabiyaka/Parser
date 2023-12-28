@@ -82,7 +82,7 @@ def getHitbetonData():
     return products
 
 
-def generate_xml_h(products):
+def generate_xml_h(products, article):
     global id
     output = ''
     for index, product in enumerate(products):
@@ -94,7 +94,7 @@ def generate_xml_h(products):
                   '        <quantity_in_stock></quantity_in_stock>\n' \
                   '        <name>' + product['name'] + '</name>\n' \
                   '        <vendor>' + 'hitbeton' + '</vendor>\n' \
-                  '        <vendorCode>' + '' + '</vendorCode>\n' \
+                  '        <vendorCode>' + str(id) + ' ' + article + '</vendorCode>\n' \
                   '        <description><![CDATA[' + product['description'] + ']]></description>\n' \
                   '        <keywords>''</keywords>\n' \
                   '        <country>Украина</country>\n' \

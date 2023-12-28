@@ -360,9 +360,9 @@ get_and_save_data(drp, 'xml/drp.xml', 1000)
 drp = []
 
 sites = [
-    generate_xml_f(getFormdekorData()).replace('&', '&amp;'),
-    generate_xml_t(getTechnoOdisData()).replace('&', '&amp;'),
-    generate_xml_h(getHitbetonData()).replace('&', '&amp;'),
+    generate_xml_f(getFormdekorData(), 'dek').replace('&', '&amp;'),
+    generate_xml_t(getTechnoOdisData(), 'sid').replace('&', '&amp;'),
+    generate_xml_h(getHitbetonData(), 'diso').replace('&', '&amp;'),
     getProductsXML('https://velomarket24.com.ua/products_feed.xml?hash_tag=ed5e87b0f593a6b91642b9f6fa4cf737&sales_notes=&product_ids=&label_ids=&exclude_fields=&html_description=0&yandex_cpa=&process_presence_sure=&languages=ru&group_ids=', 'Tek'),
 ]
 
